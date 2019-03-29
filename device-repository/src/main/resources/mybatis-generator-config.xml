@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!--<classPathEntry location="../generator/mysql-connector-java-5.1.38.jar" />-->
+    <context id="mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.lhf.deviceMS.repository.common.PlatformMapper"/>
+            <!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
+            <!--<property name="caseSensitive" value="true"/>-->
+        </plugin>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/flydemo"
+                        userId="root" password="123456">
+        </jdbcConnection>
+
+        <!-- POJO -->
+        <javaModelGenerator targetPackage="com.lhf.deviceMS.domain.entity" targetProject="device-domain/src/main/java">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- Mapper.xml -->
+        <sqlMapGenerator targetPackage="mybatis" targetProject="device-repository/src/main/resources">
+        </sqlMapGenerator>
+
+        <!-- Mapper -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.lhf.deviceMS.repository.mapper" targetProject="device-repository/src/main/java">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+
+        <table schema="public" tableName="tb_user" domainObjectName="User">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+
+
+
+    </context>
+</generatorConfiguration>

@@ -1,0 +1,100 @@
+<configuration scan="true" scanPeriod="60 seconds">	  <!-- Auto Scan config file -->
+	<property name="APP_NAME" value="deviceMS" />
+	<!--定义日志文件的存储地址 勿在 LogBack 的配置中使用相对路径 -->
+	<springProfile name="dev">
+		<property name="LOG_PATH" value="/home/logs/${APP_NAME}"></property>
+	</springProfile>
+
+	<springProfile name="test">
+		<property name="LOG_PATH" value="/home/logs/${APP_NAME}"></property>
+	</springProfile>
+
+	<springProfile name="prod">
+		<property name="LOG_PATH" value="/home/logs/${APP_NAME}"></property>
+	</springProfile>
+
+	<springProfile name="local">
+		<property name="LOG_PATH" value="../logs/${APP_NAME}"></property>
+	</springProfile>
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[lf-1][${APP_NAME}][%d{yyyy-MM-dd
+				HH:mm:ss.SSS}][%-5level][%thread][%file:%line] - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="ERROR_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/${APP_NAME}-error.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/${APP_NAME}-error.log.%d{yyyy-MM-dd}
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>[lf-1][${APP_NAME}][%d{yyyy-MM-dd
+				HH:mm:ss.SSS}][%-5level][%thread][%file:%line] - %msg%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>warn</level>		<!-- only log warn/error msg -->
+		</filter>
+	</appender>
+
+	<appender name="NORMAL_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_PATH}/${APP_NAME}.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/${APP_NAME}.log.%d{yyyyMMdd}
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>[lf-1][${APP_NAME}][%d{yyyy-MM-dd
+				HH:mm:ss.SSS}][%-5level][%thread][%file:%line] - %msg%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>info</level>		<!-- only log warn/error msg -->
+		</filter>
+	</appender>
+
+	<!-- #################################################################### -->
+
+	<!--<logger name="cn.soeasypay.notify" level="INFO"> -->
+	<!--<appender-ref ref="STDOUT" /> -->
+	<!--</logger> -->
+
+	<springProfile name="prod">
+		<root level="INFO">
+			<appender-ref ref="STDOUT" />
+			<appender-ref ref="NORMAL_LOG" />
+			<appender-ref ref="ERROR_LOG" />
+		</root>
+	</springProfile>
+
+
+	<springProfile name="dev">
+		<root level="DEBUG">
+			<appender-ref ref="STDOUT" />
+			<appender-ref ref="NORMAL_LOG" />
+			<appender-ref ref="ERROR_LOG" />
+		</root>
+	</springProfile>
+
+	<springProfile name="local">
+		<root level="DEBUG">
+			<appender-ref ref="STDOUT" />
+		</root>
+	</springProfile>
+
+	<springProfile name="test">
+		<root level="INFO">
+			<appender-ref ref="NORMAL_LOG" />
+			<appender-ref ref="ERROR_LOG" />
+			<appender-ref ref="STDOUT" />
+		</root>
+	</springProfile>
+</configuration>
