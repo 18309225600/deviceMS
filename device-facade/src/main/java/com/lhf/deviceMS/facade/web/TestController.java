@@ -4,11 +4,15 @@ import com.lhf.deviceMS.domain.entity.User;
 import com.lhf.deviceMS.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
-@RestController
+@Controller
 @RequestMapping("/test")
 public class TestController {
 
@@ -43,5 +47,11 @@ public class TestController {
         testService.update(user);
     }
 
+
+    @GetMapping("/hello2")
+    public String hello(Map model){
+        model.put("hello","234;");
+        return "hello";
+    }
 
 }

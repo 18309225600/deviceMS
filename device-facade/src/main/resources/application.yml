@@ -1,8 +1,9 @@
 server:
   port: 8080
-  contextPath:  /device
+  context-path: /device
   tomcat:
     basedir:  /home/
+
 
 spring:
   datasource:
@@ -38,6 +39,13 @@ spring:
       username: root
       password: 123456
 
+  mvc:
+    view:
+      prefix: /WEB-INF/jsps/
+      suffix: .jsp
+    static-path-pattern: /static/**
+
 mybatis:
   mapper-locations: /mappers/**.xml
   config-location:  /mybatis-config.xml
+
