@@ -12,4 +12,9 @@ public class IndexController {
     public String toIndex(){
         return "index";
     }
+
+    @GetMapping("/home")
+    public String home(){
+        return "login/login";
+    }
 }
