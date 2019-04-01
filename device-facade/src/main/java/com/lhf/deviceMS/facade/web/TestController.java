@@ -1,15 +1,12 @@
 package com.lhf.deviceMS.facade.web;
 
-import com.lhf.deviceMS.domain.entity.User;
+import com.lhf.deviceMS.domain.entity.TestUser;
 import com.lhf.deviceMS.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -26,25 +23,25 @@ public class TestController {
 
     @PostMapping("/insert")
     public void insert(){
-        User user = new User();
-        user.setEmail("18309225600@163.com");
-        user.setUsername("刘宏飞");
-        user.setPhone("18309225600");
-        user.setPassword("123456");
-        user.setCreated(new Date());
-        user.setUpdated(new Date());
+        TestUser testUser = new TestUser();
+        testUser.setEmail("18309225600@163.com");
+        testUser.setUsername("刘宏飞");
+        testUser.setPhone("18309225600");
+        testUser.setPassword("123456");
+        testUser.setCreated(new Date());
+        testUser.setUpdated(new Date());
 
-        testService.insert(user);
+        testService.insert(testUser);
     }
 
 
 
     @PostMapping("/update")
     public void update(){
-        User user = new User();
-        user.setId(5L);
-        user.setPassword("1234567");
-        testService.update(user);
+        TestUser testUser = new TestUser();
+        testUser.setId(5L);
+        testUser.setPassword("1234567");
+        testService.update(testUser);
     }
 
 

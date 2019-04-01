@@ -1,6 +1,6 @@
 package com.lhf.deviceMS.service.impl;
 
-import com.lhf.deviceMS.domain.entity.User;
+import com.lhf.deviceMS.domain.entity.TestUser;
 import com.lhf.deviceMS.repository.dao.TestDao;
 import com.lhf.deviceMS.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +18,12 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public void insert(User user) {
-        testDao.insert(user);
+    public void insert(TestUser testUser) {
+        testDao.insert(testUser);
     }
 
     @Override
-    public void update(User user) {
-        testDao.update(user);
+    public void update(TestUser testUser) {
+        testDao.update(testUser);
     }
 }

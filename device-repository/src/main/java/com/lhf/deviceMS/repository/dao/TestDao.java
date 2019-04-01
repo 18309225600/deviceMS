@@ -1,6 +1,6 @@
 package com.lhf.deviceMS.repository.dao;
 
-import com.lhf.deviceMS.domain.entity.User;
+import com.lhf.deviceMS.domain.entity.TestUser;
 import com.lhf.deviceMS.repository.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,21 +15,21 @@ public class TestDao {
     private UserMapper userMapper;
 
     public String search(){
-        Weekend<User> weekend = new Weekend<>(User.class);
-        weekend.weekendCriteria().andLike(User::getPhone,"%60011224%");
-        List<User> users = userMapper.selectByExample(weekend);
-        return users.toString();
+        Weekend<TestUser> weekend = new Weekend<>(TestUser.class);
+        weekend.weekendCriteria().andLike(TestUser::getPhone,"%60011224%");
+        List<TestUser> testUsers = userMapper.selectByExample(weekend);
+        return testUsers.toString();
     }
 
 
 
-    public void insert(User user) {
-        userMapper.insertSelective(user);
+    public void insert(TestUser testUser) {
+        userMapper.insertSelective(testUser);
     }
 
 
-    public void update(User user) {
-        userMapper.updateByPrimaryKeySelective(user);
+    public void update(TestUser testUser) {
+        userMapper.updateByPrimaryKeySelective(testUser);
     }
 }
 

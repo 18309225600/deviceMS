@@ -42,6 +42,7 @@
 		<web.plug.version>1.5.6.RELEASE</web.plug.version>
 		<jstl.version>1.2</jstl.version>
 		<jasper.version>8.5.16</jasper.version>
+		<swagger.version>2.7.0</swagger.version>
 
 	</properties>
 
@@ -175,6 +176,17 @@
 				<groupId>org.apache.tomcat.embed</groupId>
 				<artifactId>tomcat-embed-jasper</artifactId>
 				<version>${jasper.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${swagger.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>${swagger.version}</version>
 			</dependency>
 
 		</dependencies>

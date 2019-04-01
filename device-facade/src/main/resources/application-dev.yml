@@ -22,7 +22,7 @@ spring:
 
     ds1:
       driverClassName:  com.mysql.jdbc.Driver
-      url:  jdbc:mysql://localhost:3306/test
+      url:  jdbc:mysql://localhost:3306/device_ms
       username: root
       password: 123456
 

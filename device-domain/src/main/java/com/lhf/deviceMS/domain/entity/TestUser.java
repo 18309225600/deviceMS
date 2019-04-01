@@ -4,7 +4,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 @Table(name = "tb_user")
-public class User {
+public class TestUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -41,6 +41,12 @@ spring:
   jpa:
     showSql:  true
 
+  mvc:
+    view:
+      prefix: /WEB-INF/jsps/
+      suffix: .jsp
+    static-path-pattern: /static/**
+
 mybatis:
   mapper-locations: /mappers/**.xml
   config-location:  /mybatis-config.xml

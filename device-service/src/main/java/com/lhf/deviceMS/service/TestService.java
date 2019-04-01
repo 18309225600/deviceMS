@@ -1,11 +1,11 @@
 package com.lhf.deviceMS.service;
 
-import com.lhf.deviceMS.domain.entity.User;
+import com.lhf.deviceMS.domain.entity.TestUser;
 
 public interface TestService {
     String search();
 
-    void insert(User user);
+    void insert(TestUser testUser);
 
-    void update(User user);
+    void update(TestUser testUser);
 }
