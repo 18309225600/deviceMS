@@ -1,6 +1,5 @@
 server:
   port: 80
-  contextPath:  /device
   tomcat:
     basedir:  /home/
 

@@ -12,18 +12,18 @@
     <meta name="keywords" content="perfect-ssm">
     <meta name="description" content="perfect-ssm">
 
-    <link href="../../static/css/bootstrap.min14ed.css" rel="stylesheet">
-    <link href="../../static/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min14ed.css" rel="stylesheet">
+    <link href="/static/css/font-awesome.min93e3.css" rel="stylesheet">
 
-    <link href="../../static/css/animate.min.css" rel="stylesheet">
-    <link href="../../static/css/style.min862f.css" rel="stylesheet">
+    <link href="/static/css/animate.min.css" rel="stylesheet">
+    <link href="/static/css/style.min862f.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html"/>
     <![endif]-->
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="../../static/js/login.js"></script>
-    <script src="../../static/js/common.js"></script>
+    <script src="/static/js/login.js"></script>
+    <script src="/static/js/common.js"></script>
 </head>
 
 <body class="gray-bg">
