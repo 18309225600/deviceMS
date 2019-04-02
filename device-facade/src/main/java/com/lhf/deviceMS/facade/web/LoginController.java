@@ -4,6 +4,7 @@ import com.lhf.deviceMS.common.std.WebException;
 import com.lhf.deviceMS.domain.entity.User;
 import com.lhf.deviceMS.facade.data.input.UserRegistInputDto;
 import com.lhf.deviceMS.service.UserService;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Map;
 
 @Controller
@@ -41,10 +43,16 @@ public class LoginController {
      * @return
      */
     @PostMapping("/exe")
-    public String login(HttpServletRequest request,String email, String password) throws WebException {
+    public String login(Map model,HttpServletRequest request,String email, String password) throws WebException {
         logger.info("user login email={},pass={}",email,password);
-        userService.login(request,email,password);
-        return "index";
+        String message = userService.login(request,email, password);
+        if (StringUtils.isBlank(message)){
+            return "index";
+        }else{
+            model.put("msg",message);
+            return "login/login";
+        }
+
     }
 
     /**
