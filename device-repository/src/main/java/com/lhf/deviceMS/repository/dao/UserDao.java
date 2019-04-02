@@ -20,7 +20,7 @@ public class UserDao {
         Objects.requireNonNull(email);
         Weekend<User> weekend = new Weekend<>(User.class);
         weekend.weekendCriteria().andIsNull(User::getDeletedAt).andEqualTo(User::getEmail,email);
-        return userMapper.selectByExample(email);
+        return userMapper.selectByExample(weekend);
     }
 
     public void merge(User user) {

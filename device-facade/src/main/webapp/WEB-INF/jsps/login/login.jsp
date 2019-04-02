@@ -30,29 +30,30 @@
         <div class="login-content">
             <div class="login-logo">
                 <a href="index.html">
-                    <img class="align-content" src="images/logo.png" alt="">
+                    <img class="align-content" src="/static/images/logo.png" alt="">
                 </a>
             </div>
             <div class="login-form">
-                <form>
+                <form action="/login/exe" method="post">
+                    <div style="text-align: center;color:red;">${msg}</div>
                     <div class="form-group">
                         <label>邮箱地址</label>
-                        <input type="email" class="form-control" placeholder="邮箱">
+                        <input type="email" name="email" class="form-control" placeholder="邮箱">
                     </div>
                     <div class="form-group">
                         <label>密码</label>
-                        <input type="password" class="form-control" placeholder="密码">
+                        <input type="password" name="password" class="form-control" placeholder="密码">
                     </div>
                     <div class="checkbox">
                         <%--<label>
                             <input type="checkbox"> Remember Me
                         </label>--%>
                         <label class="pull-right">
-                            <a href="#">Forgotten Password?</a>
+                            <a href="#">密码忘记了?</a>
                         </label>
 
                     </div>
-                    <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
+                    <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">登录</button>
                     <%--<div class="social-login-content">
                         <div class="social-button">
                             <button type="button" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-facebook"></i>Sign in with facebook</button>
@@ -68,11 +69,12 @@
     </div>
 </div>
 
-<script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/jquery.matchHeight.min.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="/static/modules/login/login.js"></script>
+<script src="/static/assets/js/vendor/jquery-2.1.4.min.js"></script>
+<script src="/static/assets/js/popper.min.js"></script>
+<script src="/static/assets/js/bootstrap.min.js"></script>
+<script src="/static/assets/js/jquery.matchHeight.min.js"></script>
+<script src="/static/assets/js/main.js"></script>
 
 </body>
 

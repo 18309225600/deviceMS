@@ -14,6 +14,9 @@ public enum WebErrCode {
 
 
     DEVICE_USER_EMAIL_REPEAT("1000001","用户邮箱已存在"),
+    DEVICE_USER_NOT_EXIST("1000002","用户信息不存在"),
+    DEVICE_USER_INFO_ERR("1000003","用户信息错误"),
+    DEVICE_USER_EMAIL_OR_EMAIL_INVALID("1000004","邮箱或密码错误"),
 
 
     ;

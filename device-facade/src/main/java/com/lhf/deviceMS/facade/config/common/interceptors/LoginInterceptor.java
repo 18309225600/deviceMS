@@ -28,7 +28,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         if (user==null){
             logger.info("用户凭证不存在,跳转登录页。。");
-            response.sendRedirect(request.getContextPath()+"/index");
+            response.sendRedirect(request.getContextPath()+"/login/page");
             return false;
         }
 
