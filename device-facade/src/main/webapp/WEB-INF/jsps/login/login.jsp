@@ -9,54 +9,70 @@
 
 
     <title>登录</title>
-    <meta name="keywords" content="perfect-ssm">
-    <meta name="description" content="perfect-ssm">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <link href="/static/css/bootstrap.min14ed.css" rel="stylesheet">
-    <link href="/static/css/font-awesome.min93e3.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/assets/css/normalize.css">
+    <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="/static/assets/css/pe-icon-7-filled.css">
+    <link rel="stylesheet" href="/static/assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/static/assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="/static/assets/css/style.css">
 
-    <link href="/static/css/animate.min.css" rel="stylesheet">
-    <link href="/static/css/style.min862f.css" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <meta http-equiv="refresh" content="0;ie.html"/>
-    <![endif]-->
-    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script src="/static/js/login.js"></script>
-    <script src="/static/js/common.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 </head>
 
-<body class="gray-bg">
+<body class="bg-dark">
 
-<div class="middle-box text-center loginscreen  animated fadeInDown">
-    <div>
-        <div>
+<div class="sufee-login d-flex align-content-center flex-wrap">
+    <div class="container">
+        <div class="login-content">
+            <div class="login-logo">
+                <a href="index.html">
+                    <img class="align-content" src="images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="login-form">
+                <form>
+                    <div class="form-group">
+                        <label>Email address</label>
+                        <input type="email" class="form-control" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Remember Me
+                        </label>
+                        <label class="pull-right">
+                            <a href="#">Forgotten Password?</a>
+                        </label>
 
-            <h1 class="logo-name">13</h1>
-
+                    </div>
+                    <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">Sign in</button>
+                    <div class="social-login-content">
+                        <div class="social-button">
+                            <button type="button" class="btn social facebook btn-flat btn-addon mb-3"><i class="ti-facebook"></i>Sign in with facebook</button>
+                            <button type="button" class="btn social twitter btn-flat btn-addon mt-2"><i class="ti-twitter"></i>Sign in with twitter</button>
+                        </div>
+                    </div>
+                    <div class="register-link m-t-15 text-center">
+                        <p>Don't have account ? <a href="#"> Sign Up Here</a></p>
+                    </div>
+                </form>
+            </div>
         </div>
-        <h3>欢迎使用 perfect-ssm</h3>
-
-        <form class="m-t" role="form" id="adminlogin" method="post"
-              name="adminlogin" onsubmit="return false" action="##">
-            <div class="form-group">
-                <input type="email" class="form-control" placeholder="用户名" name="userName" id="userName" required="">
-
-            </div>
-            <div class="form-group">
-                <input type="password" class="form-control" placeholder="密码" name="password" id="password" required="">
-
-            </div>
-            <button type="button" class="btn btn-primary block full-width m-b" onclick="javascript:login();">登 录
-            </button>
-            <p class="text-muted text-center"><a href="##" onclick="javascript:adminlogin.reset();return false;">
-                <small>重置</small>
-            </a>
-            </p>
-
-        </form>
     </div>
 </div>
+
+<script src="assets/js/vendor/jquery-2.1.4.min.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.matchHeight.min.js"></script>
+<script src="assets/js/main.js"></script>
 
 </body>
 
