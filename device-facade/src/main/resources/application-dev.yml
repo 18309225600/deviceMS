@@ -46,6 +46,13 @@ spring:
       suffix: .jsp
     static-path-pattern: /static/**
 
+
+  #file
+  http:
+    multipart:
+      max-file-size:  50MB
+      max-request-size: 50MB
+
 mybatis:
   mapper-locations: /mappers/**.xml
   config-location:  /mybatis-config.xml

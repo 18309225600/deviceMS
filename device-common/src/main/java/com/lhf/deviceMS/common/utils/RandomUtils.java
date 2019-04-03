@@ -2,6 +2,7 @@ package com.lhf.deviceMS.common.utils;
 
 import java.util.Objects;
 import java.util.Random;
+import java.util.UUID;
 
 public class RandomUtils {
     /**
@@ -35,5 +36,13 @@ public class RandomUtils {
         }
 
         return stringBuffer.toString();
+    }
+
+    /**
+     * 32位不重复UUID大写
+     * @return
+     */
+    public static String uuid(){
+        return UUID.randomUUID().toString().toUpperCase();
     }
 }
