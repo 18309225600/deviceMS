@@ -68,7 +68,6 @@
         </div>
     </div>
 </div>
-
 <script src="/static/modules/login/login.js"></script>
 <script src="/static/assets/js/vendor/jquery-2.1.4.min.js"></script>
 <script src="/static/assets/js/popper.min.js"></script>

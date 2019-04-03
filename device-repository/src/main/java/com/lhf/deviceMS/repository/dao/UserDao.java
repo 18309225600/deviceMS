@@ -32,4 +32,10 @@ public class UserDao {
             userMapper.updateByPrimaryKeySelective(user);
         }
     }
+
+    public Integer queryTotal() {
+        Weekend<User> weekend = new Weekend<>(User.class);
+        weekend.weekendCriteria().andIsNull(User::getDeletedAt);
+        return userMapper.selectCountByExample(weekend);
+    }
 }

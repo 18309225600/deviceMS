@@ -6,7 +6,7 @@
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 <li class="active">
-                    <a href="${ctx}/index"><i class="menu-icon fa fa-laptop"></i>办公设备管理系统</a>
+                    <a href="${ctx}/index" class="dropdown-toggle"><i class="menu-icon fa fa-laptop"></i>办公设备管理系统</a>
                 </li>
                 <li>
                     <a href="${ctx}/device/list" class="dropdown-toggle"> <i class="menu-icon fa fa-cogs"></i>所有设备</a>
@@ -33,6 +33,6 @@
                     <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-cog"></i>个人信息</a>
                 </li>
             </ul>
-        </div><!-- /.navbar-collapse -->
+        </div>
     </nav>
 </aside>

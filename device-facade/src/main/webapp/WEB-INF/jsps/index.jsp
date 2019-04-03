@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="/static/assets/css/themify-icons.css">
     <link rel="stylesheet" href="/static/assets/css/pe-icon-7-filled.css">
     <link rel="stylesheet" href="/static/assets/css/flag-icon.min.css">
-    <link rel="stylesheet" href="/static/assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="/static/assets/css/style.css">
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
     <link href="/static/assets/weather/css/weather-icons.css" rel="stylesheet" />
@@ -115,7 +114,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text">$<span class="count">23569</span></div>
+                                        <div class="stat-text"><span class="count">${indexData.deviceNum}</span></div>
                                         <div class="stat-heading">设备总数</div>
                                     </div>
                                 </div>
@@ -133,7 +132,7 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">3435</span></div>
+                                        <div class="stat-text"><span class="count">${indexData.dumpNum}</span></div>
                                         <div class="stat-heading">报废数量</div>
                                     </div>
                                 </div>
@@ -151,8 +150,8 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">349</span></div>
-                                        <div class="stat-heading">保修数量</div>
+                                        <div class="stat-text"><span class="count">${indexData.repairNum}</span></div>
+                                        <div class="stat-heading">报修数量</div>
                                     </div>
                                 </div>
                             </div>
@@ -169,8 +168,8 @@
                                 </div>
                                 <div class="stat-content">
                                     <div class="text-left dib">
-                                        <div class="stat-text"><span class="count">2986</span></div>
-                                        <div class="stat-heading">用户数</div>
+                                        <div class="stat-text"><span class="count">${indexData.userNum}</span></div>
+                                        <div class="stat-heading">用户数量</div>
                                     </div>
                                 </div>
                             </div>

@@ -2,7 +2,9 @@ package com.lhf.deviceMS.facade.web;
 
 import com.lhf.deviceMS.common.std.WebException;
 import com.lhf.deviceMS.domain.entity.User;
+import com.lhf.deviceMS.domain.vo.IndexTotalVo;
 import com.lhf.deviceMS.facade.data.input.UserRegistInputDto;
+import com.lhf.deviceMS.service.IndexService;
 import com.lhf.deviceMS.service.UserService;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -23,6 +25,9 @@ public class LoginController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private IndexService indexService;
 
     private Logger logger = LoggerFactory.getLogger(LoginController.class);
 
@@ -47,6 +52,8 @@ public class LoginController {
         logger.info("user login email={},pass={}",email,password);
         String message = userService.login(request,email, password);
         if (StringUtils.isBlank(message)){
+            IndexTotalVo vo = indexService.buildIndexData();
+            model.put("indexData",vo);
             return "index";
         }else{
             model.put("msg",message);
