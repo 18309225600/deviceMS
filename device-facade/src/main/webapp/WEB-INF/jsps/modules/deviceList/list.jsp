@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="/static/assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="/static/assets/css/themify-icons.css">
     <link rel="stylesheet" href="/static/assets/css/pe-icon-7-filled.css">
-    <link rel="stylesheet" href="/static/assets/css/flag-icon.min.css"><link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="/static/assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="/static/assets/css/cs-skin-elastic.css">
     <link rel="stylesheet" href="/static/assets/css/style.css">
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
     <link href="/static/assets/weather/css/weather-icons.css" rel="stylesheet" />
@@ -102,42 +103,53 @@
     <div class="content">
         <div class="animated fadeIn">
             <div class="row">
-
-                <div class="col-md-12">
+                <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">设备列表</strong>
+                            <strong class="card-title">Stripped Table</strong>
                         </div>
                         <div class="card-body">
-                            <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                            <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Salary</th>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">设备编号</th>
+                                    <th scope="col">设备名称</th>
+                                    <th scope="col">采购时间</th>
+                                    <th scope="col">采购价格</th>
                                 </tr>
                                 </thead>
+
                                 <tbody>
-                                  <c:forEach items="${list}" var="list" varStatus="s">
-                                      <tr>
-                                          <td>Donna Snider</td>
-                                          <td>Customer Support</td>
-                                          <td>New York</td>
-                                          <td>$112,000</td>
-                                      </tr>
-                                  </c:forEach>
+                                    <c:forEach items="${list.list}" var="detail">
+                                        <tr>
+                                            <td>${detail.id}</td>
+                                            <td>${detail.code}</td>
+                                            <td>${detail.name}</td>
+                                            <td><fmt:formatDate value="${detail.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+                                            <td>${detail.price}</td>
+                                        </tr>
+                                    </c:forEach>
                                 </tbody>
                             </table>
+
+                            <%--pageInfo--%>
+                            <tr style="text-align: center">
+                                <input type="hidden" id="pageNo" value="${pageNo}"/>
+                                <input type="hidden" id="totalPage" value="${list.pages}"/>
+                                <td width="49"><div align="center" id="firstPage"><button type="button" class="btn btn-outline-secondary btn-sm">首页</button></div></td>
+                                <td width="49"><div align="center" id="proidPage"><button type="button" class="btn btn-outline-secondary btn-sm">上一页</button></div></td>
+                                <td width="49"><div align="center" id="nextPage"><button type="button" class="btn btn-outline-secondary btn-sm">下一页</button></div></td>
+                                <td width="49"><div align="center" id="endPage"><button type="button" class="btn btn-outline-secondary btn-sm">尾页</button></div></td>
+                            </tr>
+
                         </div>
                     </div>
                 </div>
-
-
             </div>
-        </div><!-- .animated -->
-    </div><!-- .content -->
-    <!-- /#right-panel -->
+        </div>
+    </div>
+</div>
 
     <script src="/static/assets/js/vendor/jquery-2.1.4.min.js"></script>
     <script src="/static/assets/js/popper.min.js"></script>
@@ -156,6 +168,7 @@
     <script src="/static/assets/js/lib/data-table/buttons.print.min.js"></script>
     <script src="/static/assets/js/lib/data-table/buttons.colVis.min.js"></script>
     <script src="/static/assets/js/init/datatables-init.js"></script>
-</div>
+    <script src="/static/modules/deviceList/list.js"></script>
+
 </body>
 </html>

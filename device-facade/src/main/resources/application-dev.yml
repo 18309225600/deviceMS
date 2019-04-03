@@ -21,19 +21,19 @@ spring:
 
     ds1:
       driverClassName:  com.mysql.jdbc.Driver
-      url:  jdbc:mysql://localhost:3306/device_ms
+      url:  jdbc:mysql://localhost:3306/device_ms?useUnicode=true&characterEncoding=UTF-8
       username: root
       password: 123456
 
     ds2:
       driverClassName:  com.mysql.jdbc.Driver
-      url:  jdbc:mysql://localhost:3306/test2
+      url:  jdbc:mysql://localhost:3306/test2?useUnicode=true&characterEncoding=UTF-8
       username: root
       password: 123456
 
     ds3:
       driverClassName:  com.mysql.jdbc.Driver
-      url:  jdbc:mysql://localhost:3306/test3
+      url:  jdbc:mysql://localhost:3306/test3?useUnicode=true&characterEncoding=UTF-8
       username: root
       password: 123456
 

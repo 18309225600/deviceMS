@@ -34,7 +34,7 @@ public class SessionUtils {
         private String gender;
         private String phone;
         private String email;
-        private Long role;
+        private String role;
 
         public SessionHolder() {
         }
@@ -88,11 +88,11 @@ public class SessionUtils {
             this.email = email;
         }
 
-        public Long getRole() {
+        public String getRole() {
             return role;
         }
 
-        public void setRole(Long role) {
+        public void setRole(String role) {
             this.role = role;
         }
     }

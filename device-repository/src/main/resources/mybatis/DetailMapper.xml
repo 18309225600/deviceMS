@@ -1,18 +1,48 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.lhf.deviceMS.repository.mapper.DetailMapper" >
-  <resultMap id="BaseResultMap" type="com.lhf.deviceMS.domain.entity.Detail" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhf.deviceMS.repository.mapper.DetailMapper">
+  <resultMap id="BaseResultMap" type="com.lhf.deviceMS.domain.entity.Detail">
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="id" property="id" jdbcType="BIGINT" />
-    <result column="code" property="code" jdbcType="VARCHAR" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="last_repair_at" property="lastRepairAt" jdbcType="TIMESTAMP" />
-    <result column="dumped" property="dumped" jdbcType="CHAR" />
-    <result column="buy_at" property="buyAt" jdbcType="TIMESTAMP" />
-    <result column="status" property="status" jdbcType="CHAR" />
-    <result column="created_at" property="createdAt" jdbcType="TIMESTAMP" />
-    <result column="deleted_at" property="deletedAt" jdbcType="TIMESTAMP" />
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="last_repair_at" jdbcType="TIMESTAMP" property="lastRepairAt" />
+    <result column="dumped" jdbcType="CHAR" property="dumped" />
+    <result column="buy_at" jdbcType="TIMESTAMP" property="buyAt" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="price" jdbcType="BIGINT" property="price" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.lhf.deviceMS.domain.entity.Detail">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="last_repair_at" jdbcType="TIMESTAMP" property="lastRepairAt" />
+    <result column="dumped" jdbcType="CHAR" property="dumped" />
+    <result column="buy_at" jdbcType="TIMESTAMP" property="buyAt" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="price" jdbcType="BIGINT" property="price" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.lhf.deviceMS.domain.entity.Detail">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="last_repair_at" jdbcType="TIMESTAMP" property="lastRepairAt" />
+    <result column="dumped" jdbcType="CHAR" property="dumped" />
+    <result column="buy_at" jdbcType="TIMESTAMP" property="buyAt" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
   </resultMap>
 </mapper>

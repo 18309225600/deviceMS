@@ -38,6 +38,11 @@ public class Detail {
 
     private String status;
 
+    /**
+     * 价格
+     */
+    private Long price;
+
     @Column(name = "created_at")
     private Date createdAt;
 
@@ -160,6 +165,24 @@ public class Detail {
      */
     public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
+    }
+
+    /**
+     * 获取价格
+     *
+     * @return price - 价格
+     */
+    public Long getPrice() {
+        return price;
+    }
+
+    /**
+     * 设置价格
+     *
+     * @param price 价格
+     */
+    public void setPrice(Long price) {
+        this.price = price;
     }
 
     /**

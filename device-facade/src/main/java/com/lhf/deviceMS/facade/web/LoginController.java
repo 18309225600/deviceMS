@@ -63,6 +63,15 @@ public class LoginController {
     }
 
     /**
+     * 注册页
+     * @return
+     */
+    @GetMapping("/regist")
+    public String registPage(){
+        return "regist/regist";
+    }
+
+    /**
      * 注册
      * @param input
      * @param model
@@ -74,6 +83,6 @@ public class LoginController {
         User inputUser = input.verify().transform();
         userService.regist(inputUser);
         model.put("msg","regist succ");
-        return "regist/succ";
+        return "login/login";
     }
 }

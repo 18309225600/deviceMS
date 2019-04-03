@@ -13,7 +13,6 @@ public class UserRegistInputDto {
     private String phone;
     private String email;
     private String password;
-    private Long role;
 
     public String getName() {
         return name;
@@ -55,22 +54,13 @@ public class UserRegistInputDto {
         this.password = password;
     }
 
-    public Long getRole() {
-        return role;
-    }
-
-    public void setRole(Long role) {
-        this.role = role;
-    }
 
     public UserRegistInputDto verify() throws WebException {
         if (StringUtils.isBlank(name)||
             StringUtils.isBlank(gender)||
             StringUtils.isBlank(phone)||
             StringUtils.isBlank(email)||
-            StringUtils.isBlank(password)||
-            role==null
-            ){
+            StringUtils.isBlank(password)){
             throw new WebException(WebErrCode.DEVICE_COMMON_INVALID_PARAM);
         }
         return this;

@@ -37,7 +37,7 @@ public class User {
     /**
      * 角色
      */
-    private Long role;
+    private String role;
 
     /**
      * 创建时间
@@ -160,7 +160,7 @@ public class User {
      *
      * @return role - 角色
      */
-    public Long getRole() {
+    public String getRole() {
         return role;
     }
 
@@ -169,8 +169,8 @@ public class User {
      *
      * @param role 角色
      */
-    public void setRole(Long role) {
-        this.role = role;
+    public void setRole(String role) {
+        this.role = role == null ? null : role.trim();
     }
 
     /**

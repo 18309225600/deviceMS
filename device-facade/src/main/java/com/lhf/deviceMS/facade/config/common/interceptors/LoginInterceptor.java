@@ -1,7 +1,5 @@
 package com.lhf.deviceMS.facade.config.common.interceptors;
 
-import com.lhf.deviceMS.common.std.WebException;
-import com.lhf.deviceMS.common.std.enums.WebErrCode;
 import com.lhf.deviceMS.common.utils.SessionUtils;
 import com.lhf.deviceMS.domain.entity.User;
 import org.slf4j.Logger;

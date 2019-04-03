@@ -1,5 +1,7 @@
 package com.lhf.deviceMS.repository.dao;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.lhf.deviceMS.domain.entity.Detail;
 import com.lhf.deviceMS.domain.enums.DeviceStatus;
 import com.lhf.deviceMS.repository.mapper.DetailMapper;
@@ -23,5 +25,12 @@ public class DeviceDao {
         Weekend<Detail> weekend = new Weekend<>(Detail.class);
         weekend.weekendCriteria().andIsNull(Detail::getDeletedAt).andEqualTo(Detail::getStatus,status.getCode());
         return detailMapper.selectCountByExample(weekend);
+    }
+
+    public PageInfo<Detail> list(Integer pageNo, Integer pageSize) {
+        PageHelper.startPage(pageNo,pageSize);
+        Weekend<Detail> weekend = new Weekend<>(Detail.class);
+        weekend.weekendCriteria().andIsNull(Detail::getDeletedAt).andEqualTo(Detail::getStatus,DeviceStatus.NOMAL);
+        return new PageInfo<>(detailMapper.selectByExample(weekend));
     }
 }

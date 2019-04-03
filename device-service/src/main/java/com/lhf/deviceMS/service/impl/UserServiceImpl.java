@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
             throw new WebException(WebErrCode.DEVICE_USER_EMAIL_REPEAT);
         }
 
+        inputUser.setPassword(EncryptionUtils.md5(inputUser.getPassword()));
         userDao.merge(inputUser);
     }
 
