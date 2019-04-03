@@ -106,7 +106,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Data Table</strong>
+                            <strong class="card-title">设备列表</strong>
                         </div>
                         <div class="card-body">
                             <table id="bootstrap-data-table" class="table table-striped table-bordered">
@@ -172,13 +172,6 @@
     <script src="/static/assets/js/lib/data-table/buttons.print.min.js"></script>
     <script src="/static/assets/js/lib/data-table/buttons.colVis.min.js"></script>
     <script src="/static/assets/js/init/datatables-init.js"></script>
-
-    <!--Local Stuff-->
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#bootstrap-data-table-export').DataTable();
-        } );
-    </script>
 </div>
 </body>
 </html>
