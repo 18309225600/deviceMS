@@ -29,7 +29,7 @@ import java.util.Map;
 @Component
 public class LogAspect {
 
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(LogAspect.class);
 
     //记录开始时间
     protected ThreadLocal<Instant> start = new ThreadLocal<>();
@@ -112,7 +112,6 @@ public class LogAspect {
             mergeLog.setUserAgent(request.getHeader("user-agent"));
             //保存数据库
             logService.save(mergeLog);
-            System.out.println(mergeLog);
         }  catch (Throwable ex) {
             //记录本地异常日志
             logger.error("异常方法全路径:{},异常信息:{},请求参数:{}", getMethodName(joinPoint), ex, args);

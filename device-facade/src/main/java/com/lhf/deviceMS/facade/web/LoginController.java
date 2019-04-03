@@ -85,4 +85,17 @@ public class LoginController {
         model.put("msg","regist succ");
         return "login/login";
     }
+
+    /**
+     * 退出登录
+     * @return
+     */
+    @GetMapping("/exit")
+    public String logout(HttpServletRequest request){
+        HttpSession session = request.getSession();
+        if (session!=null){
+            session.invalidate();
+        }
+        return "login/login";
+    }
 }
