@@ -12,4 +12,9 @@ public class DeviceController {
     public String list(){
         return "modules/deviceList/list";
     }
+
+
+    public String addPage(){
+        return "";
+    }
 }
