@@ -119,30 +119,14 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>$320,800</td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>$170,750</td>
-                                </tr>
-                                <tr>
-                                    <td>Michael Bruce</td>
-                                    <td>Javascript Developer</td>
-                                    <td>Singapore</td>
-                                    <td>$183,000</td>
-                                </tr>
-                                <tr>
-                                    <td>Donna Snider</td>
-                                    <td>Customer Support</td>
-                                    <td>New York</td>
-                                    <td>$112,000</td>
-                                </tr>
+                                  <c:forEach items="${list}" var="list" varStatus="s">
+                                      <tr>
+                                          <td>Donna Snider</td>
+                                          <td>Customer Support</td>
+                                          <td>New York</td>
+                                          <td>$112,000</td>
+                                      </tr>
+                                  </c:forEach>
                                 </tbody>
                             </table>
                         </div>
