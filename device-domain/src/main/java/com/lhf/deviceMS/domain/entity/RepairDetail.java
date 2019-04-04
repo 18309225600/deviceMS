@@ -39,6 +39,13 @@ public class RepairDetail {
     @Column(name = "user_name")
     private String userName;
 
+    private String status;
+
+    /**
+     * 备注
+     */
+    private String remark;
+
     @Column(name = "created_at")
     private Date createdAt;
 
@@ -147,6 +154,38 @@ public class RepairDetail {
      */
     public void setUserName(String userName) {
         this.userName = userName == null ? null : userName.trim();
+    }
+
+    /**
+     * @return status
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status
+     */
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
+    }
+
+    /**
+     * 获取备注
+     *
+     * @return remark - 备注
+     */
+    public String getRemark() {
+        return remark;
+    }
+
+    /**
+     * 设置备注
+     *
+     * @param remark 备注
+     */
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 
     /**

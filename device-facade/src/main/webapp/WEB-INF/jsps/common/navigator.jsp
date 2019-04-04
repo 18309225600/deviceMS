@@ -12,6 +12,9 @@
                     <a href="${ctx}/device/list" class="dropdown-toggle"> <i class="menu-icon fa fa-cogs"></i>所有设备</a>
                 </li>
                 <li>
+                    <a href="${ctx}/device/addPage" class="dropdown-toggle"> <i class="menu-icon fa fa-cog"></i>设备采购</a>
+                </li>
+                <li>
                     <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-wrench"></i>维修记录</a>
                 </li>
                 <li>

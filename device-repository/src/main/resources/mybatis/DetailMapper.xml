@@ -8,6 +8,91 @@
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="code" jdbcType="VARCHAR" property="code" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="last_bad_at" jdbcType="TIMESTAMP" property="lastBadAt" />
+    <result column="dumped" jdbcType="CHAR" property="dumped" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="price" jdbcType="BIGINT" property="price" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.lhf.deviceMS.domain.entity.Detail">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="last_bad_at" jdbcType="TIMESTAMP" property="lastBadAt" />
+    <result column="dumped" jdbcType="CHAR" property="dumped" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="price" jdbcType="BIGINT" property="price" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.lhf.deviceMS.domain.entity.Detail">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="last_bad_at" jdbcType="TIMESTAMP" property="lastBadAt" />
+    <result column="dumped" jdbcType="CHAR" property="dumped" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="price" jdbcType="BIGINT" property="price" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.lhf.deviceMS.domain.entity.Detail">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="last_bad_at" jdbcType="TIMESTAMP" property="lastBadAt" />
+    <result column="dumped" jdbcType="CHAR" property="dumped" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="price" jdbcType="BIGINT" property="price" />
+    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.lhf.deviceMS.domain.entity.Detail">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="last_bad_at" jdbcType="TIMESTAMP" property="lastBadAt" />
+    <result column="dumped" jdbcType="CHAR" property="dumped" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="price" jdbcType="BIGINT" property="price" />
+    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="image" jdbcType="VARCHAR" property="image" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.lhf.deviceMS.domain.entity.Detail">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="last_repair_at" jdbcType="TIMESTAMP" property="lastRepairAt" />
     <result column="dumped" jdbcType="CHAR" property="dumped" />
     <result column="buy_at" jdbcType="TIMESTAMP" property="buyAt" />

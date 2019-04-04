@@ -37,13 +37,7 @@
         <table schema="public" tableName="device_repair_detail" domainObjectName="RepairDetail">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-        <table schema="public" tableName="device_role" domainObjectName="Role">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
         <table schema="public" tableName="device_user" domainObjectName="User">
-            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table schema="public" tableName="device_user_role" domainObjectName="UserRole">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
         <table schema="public" tableName="divice_detail" domainObjectName="Detail">

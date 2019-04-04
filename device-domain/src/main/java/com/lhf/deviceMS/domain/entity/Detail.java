@@ -20,21 +20,15 @@ public class Detail {
     private String name;
 
     /**
-     * 最后一次维修时间
+     * 最后一次损坏时间
      */
-    @Column(name = "last_repair_at")
-    private Date lastRepairAt;
+    @Column(name = "last_bad_at")
+    private Date lastBadAt;
 
     /**
      * 是否报废
      */
     private String dumped;
-
-    /**
-     * 购买时间
-     */
-    @Column(name = "buy_at")
-    private Date buyAt;
 
     private String status;
 
@@ -42,6 +36,21 @@ public class Detail {
      * 价格
      */
     private Long price;
+
+    /**
+     * 设备描述
+     */
+    private String description;
+
+    /**
+     * 设备来源
+     */
+    private String source;
+
+    /**
+     * 数量
+     */
+    private Integer number;
 
     @Column(name = "created_at")
     private Date createdAt;
@@ -100,21 +109,21 @@ public class Detail {
     }
 
     /**
-     * 获取最后一次维修时间
+     * 获取最后一次损坏时间
      *
-     * @return last_repair_at - 最后一次维修时间
+     * @return last_bad_at - 最后一次损坏时间
      */
-    public Date getLastRepairAt() {
-        return lastRepairAt;
+    public Date getLastBadAt() {
+        return lastBadAt;
     }
 
     /**
-     * 设置最后一次维修时间
+     * 设置最后一次损坏时间
      *
-     * @param lastRepairAt 最后一次维修时间
+     * @param lastBadAt 最后一次损坏时间
      */
-    public void setLastRepairAt(Date lastRepairAt) {
-        this.lastRepairAt = lastRepairAt;
+    public void setLastBadAt(Date lastBadAt) {
+        this.lastBadAt = lastBadAt;
     }
 
     /**
@@ -133,24 +142,6 @@ public class Detail {
      */
     public void setDumped(String dumped) {
         this.dumped = dumped == null ? null : dumped.trim();
-    }
-
-    /**
-     * 获取购买时间
-     *
-     * @return buy_at - 购买时间
-     */
-    public Date getBuyAt() {
-        return buyAt;
-    }
-
-    /**
-     * 设置购买时间
-     *
-     * @param buyAt 购买时间
-     */
-    public void setBuyAt(Date buyAt) {
-        this.buyAt = buyAt;
     }
 
     /**
@@ -183,6 +174,60 @@ public class Detail {
      */
     public void setPrice(Long price) {
         this.price = price;
+    }
+
+    /**
+     * 获取设备描述
+     *
+     * @return description - 设备描述
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * 设置设备描述
+     *
+     * @param description 设备描述
+     */
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
+    }
+
+    /**
+     * 获取设备来源
+     *
+     * @return source - 设备来源
+     */
+    public String getSource() {
+        return source;
+    }
+
+    /**
+     * 设置设备来源
+     *
+     * @param source 设备来源
+     */
+    public void setSource(String source) {
+        this.source = source == null ? null : source.trim();
+    }
+
+    /**
+     * 获取数量
+     *
+     * @return number - 数量
+     */
+    public Integer getNumber() {
+        return number;
+    }
+
+    /**
+     * 设置数量
+     *
+     * @param number 数量
+     */
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
     /**

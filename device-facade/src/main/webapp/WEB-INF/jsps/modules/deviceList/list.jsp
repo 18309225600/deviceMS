@@ -82,7 +82,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">Stripped Table</strong>
+                            <strong class="card-title">设备列表</strong>
                         </div>
                         <div class="card-body">
                             <table class="table table-striped">
@@ -103,21 +103,28 @@
                                             <td>${detail.code}</td>
                                             <td>${detail.name}</td>
                                             <td><fmt:formatDate value="${detail.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-                                            <td>${detail.price}</td>
+                                            <td>${detail.price/100}</td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
                             </table>
 
                             <%--pageInfo--%>
-                            <tr style="text-align: center">
+                            <div style="text-align: center;">
                                 <input type="hidden" id="pageNo" value="${pageNo}"/>
                                 <input type="hidden" id="totalPage" value="${list.pages}"/>
-                                <td width="49"><div align="center" id="firstPage"><button type="button" class="btn btn-outline-secondary btn-sm">首页</button></div></td>
-                                <td width="49"><div align="center" id="proidPage"><button type="button" class="btn btn-outline-secondary btn-sm">上一页</button></div></td>
-                                <td width="49"><div align="center" id="nextPage"><button type="button" class="btn btn-outline-secondary btn-sm">下一页</button></div></td>
-                                <td width="49"><div align="center" id="endPage"><button type="button" class="btn btn-outline-secondary btn-sm">尾页</button></div></td>
-                            </tr>
+                                <div>
+                                    <strong style="float: left;">共${list.total}条数据</strong>
+                                    <button type="buttom" id="firstPage" class="btn btn-secondary">首页</button>
+                                    <button type="buttom" id="proidPage" class="btn btn-success">上一页</button>
+                                    <button type="buttom" id="nextPage" class="btn btn-success">下一页</button>
+                                    <button type="buttom" id="endPage" class="btn btn-secondary">尾页</button>
+                                </div>
+                                <%--<div align="center" id="firstPage"><button type="button" class="btn btn-outline-secondary btn-sm">首页</button></div></td>
+                                <div align="center" id="proidPage"><button type="button" class="btn btn-outline-secondary btn-sm">上一页</button></div></td>
+                                <div align="center" id="nextPage"><button type="button" class="btn btn-outline-secondary btn-sm">下一页</button></div></td>
+                                <div align="center" id="endPage"><button type="button" class="btn btn-outline-secondary btn-sm">尾页</button></div></td>--%>
+                            </div>
 
                         </div>
                     </div>
