@@ -88,24 +88,33 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">设备编号</th>
-                                    <th scope="col">设备名称</th>
-                                    <th scope="col">采购时间</th>
-                                    <th scope="col">采购价格</th>
+                                    <th scope="col">操作人</th>
+                                    <th scope="col">操作详情</th>
+                                    <th scope="col">请求方法</th>
+                                    <th scope="col">请求参数</th>
+                                    <th scope="col">远端IP</th>
+                                    <th scope="col">请求资源</th>
+                                    <th scope="col">请求耗时（毫秒）</th>
+                                    <th scope="col">客户端信息</th>
+                                    <th scope="col">操作时间</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
-                                    <c:forEach items="${list.list}" var="detail">
-                                        <tr>
-                                            <td>${detail.id}</td>
-                                            <td>${detail.code}</td>
-                                            <td>${detail.name}</td>
-                                            <td><fmt:formatDate value="${detail.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
-                                            <td>${detail.price/100}</td>
-                                        </tr>
-                                    </c:forEach>
+                                <c:forEach items="${list.list}" var="detail">
+                                    <tr>
+                                        <td>${detail.username}</td>
+                                        <td>${detail.operation}</td>
+                                        <td>${detail.requestMethod}</td>
+                                        <td>${detail.requestParam}</td>
+                                        <td>${detail.remoteIp}</td>
+                                        <td>${detail.requestUri}</td>
+                                        <td>${detail.timeConsuming}</td>
+                                        <td>${detail.userAgent}</td>
+                                        <td><fmt:formatDate value="${detail.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
 
@@ -120,10 +129,6 @@
                                     <button type="buttom" id="nextPage" class="btn btn-success">下一页</button>
                                     <button type="buttom" id="endPage" class="btn btn-secondary">尾页</button>
                                 </div>
-                                <%--<div align="center" id="firstPage"><button type="button" class="btn btn-outline-secondary btn-sm">首页</button></div></td>
-                                <div align="center" id="proidPage"><button type="button" class="btn btn-outline-secondary btn-sm">上一页</button></div></td>
-                                <div align="center" id="nextPage"><button type="button" class="btn btn-outline-secondary btn-sm">下一页</button></div></td>
-                                <div align="center" id="endPage"><button type="button" class="btn btn-outline-secondary btn-sm">尾页</button></div></td>--%>
                             </div>
 
                         </div>
@@ -134,24 +139,24 @@
     </div>
 </div>
 
-    <script src="/static/assets/js/vendor/jquery-2.1.4.min.js"></script>
-    <script src="/static/assets/js/popper.min.js"></script>
-    <script src="/static/assets/js/bootstrap.min.js"></script>
-    <script src="/static/assets/js/jquery.matchHeight.min.js"></script>
-    <script src="/static/assets/js/main.js"></script>
+<script src="/static/assets/js/vendor/jquery-2.1.4.min.js"></script>
+<script src="/static/assets/js/popper.min.js"></script>
+<script src="/static/assets/js/bootstrap.min.js"></script>
+<script src="/static/assets/js/jquery.matchHeight.min.js"></script>
+<script src="/static/assets/js/main.js"></script>
 
 
-    <script src="/static/assets/js/lib/data-table/datatables.min.js"></script>
-    <script src="/static/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
-    <script src="/static/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
-    <script src="/static/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
-    <script src="/static/assets/js/lib/data-table/jszip.min.js"></script>
-    <script src="/static/assets/js/lib/data-table/vfs_fonts.js"></script>
-    <script src="/static/assets/js/lib/data-table/buttons.html5.min.js"></script>
-    <script src="/static/assets/js/lib/data-table/buttons.print.min.js"></script>
-    <script src="/static/assets/js/lib/data-table/buttons.colVis.min.js"></script>
-    <script src="/static/assets/js/init/datatables-init.js"></script>
-    <script src="/static/modules/deviceList/list.js"></script>
+<script src="/static/assets/js/lib/data-table/datatables.min.js"></script>
+<script src="/static/assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+<script src="/static/assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+<script src="/static/assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+<script src="/static/assets/js/lib/data-table/jszip.min.js"></script>
+<script src="/static/assets/js/lib/data-table/vfs_fonts.js"></script>
+<script src="/static/assets/js/lib/data-table/buttons.html5.min.js"></script>
+<script src="/static/assets/js/lib/data-table/buttons.print.min.js"></script>
+<script src="/static/assets/js/lib/data-table/buttons.colVis.min.js"></script>
+<script src="/static/assets/js/init/datatables-init.js"></script>
+<script src="/static/modules/opLog/list.js"></script>
 
 </body>
 </html>

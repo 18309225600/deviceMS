@@ -27,7 +27,7 @@
                     <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-user"></i>用户管理</a>
                 </li>
                 <li>
-                    <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-book"></i>日志管理</a>
+                    <a href="${ctx}/opLog/list" class="dropdown-toggle"> <i class="menu-icon fa fa-book"></i>日志管理</a>
                 </li>
                 <li>
                     <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-envelope"></i>权限管理</a>
