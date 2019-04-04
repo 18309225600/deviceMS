@@ -82,7 +82,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">设备列表</strong>
+                            <strong class="card-title">${status}设备列表</strong>
                         </div>
                         <div class="card-body">
                             <table class="table table-striped">

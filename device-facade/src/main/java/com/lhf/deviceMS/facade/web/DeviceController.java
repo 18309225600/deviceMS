@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import com.lhf.deviceMS.common.std.PageIn;
 import com.lhf.deviceMS.domain.entity.Detail;
+import com.lhf.deviceMS.domain.enums.DeviceStatus;
 import com.lhf.deviceMS.facade.config.oplog.annotations.OpLog;
 import com.lhf.deviceMS.facade.data.input.DeviceAddInputDto;
 import com.lhf.deviceMS.service.DeviceService;
@@ -34,11 +35,11 @@ public class DeviceController {
      * @return
      */
     @GetMapping("/list")
-    @OpLog("读取设备列表")
-    public String list(Map model, PageIn page){
-        PageInfo<Detail> pageInfo = deviceService.list(page.getPageNo(),page.getPageSize());
+    public String list(Map model, DeviceStatus status, PageIn page){
+        PageInfo<Detail> pageInfo = deviceService.list(status,page.getPageNo(),page.getPageSize());
         model.put("pageNo",page.getPageNo());
         model.put("list",pageInfo);
+        model.put("status",status.getMsg());
         return "modules/deviceList/list";
     }
 
@@ -51,11 +52,16 @@ public class DeviceController {
         return "modules/deviceList/addPage";
     }
 
-    @ResponseBody
+    /**
+     * 添加设备
+     * @param input
+     * @return
+     */
+    @OpLog("购置设备")
     @PostMapping("/add")
     public String add(DeviceAddInputDto input){
         logger.info("添加设备参数: {}", JSONObject.toJSONString(input));
-        
+        deviceService.add(input.getName(),input.getPrice(),input.getNumber(),input.getDescription(),input.getSource());
         return "succ";
     }
 }

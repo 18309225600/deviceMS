@@ -9,7 +9,7 @@
                     <a href="${ctx}/index" class="dropdown-toggle"><i class="menu-icon fa fa-laptop"></i>办公设备管理系统</a>
                 </li>
                 <li>
-                    <a href="${ctx}/device/list" class="dropdown-toggle"> <i class="menu-icon fa fa-cogs"></i>所有设备</a>
+                    <a href="${ctx}/device/list?status=NOMAL" class="dropdown-toggle"> <i class="menu-icon fa fa-cogs"></i>正常设备</a>
                 </li>
                 <li>
                     <a href="${ctx}/device/addPage" class="dropdown-toggle"> <i class="menu-icon fa fa-cog"></i>设备采购</a>
@@ -18,10 +18,10 @@
                     <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-wrench"></i>维修记录</a>
                 </li>
                 <li>
-                    <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-warning"></i>报废设备</a>
+                    <a href="${ctx}/device/list?status=DUMPED" class="dropdown-toggle"> <i class="menu-icon fa fa-warning"></i>报废设备</a>
                 </li>
                 <li>
-                    <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-ban"></i>报失设备</a>
+                    <a href="${ctx}/device/list?status=LOST" class="dropdown-toggle"> <i class="menu-icon fa fa-ban"></i>报失设备</a>
                 </li>
                 <li>
                     <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-user"></i>用户管理</a>
