@@ -122,6 +122,9 @@
                                 <li class="list-group-item">
                                     <i class="fa fa-table"></i> 设备采购时间 <span class="badge badge-warning pull-right r-activity"><fmt:formatDate value="${device.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
                                 </li>
+                                <li class="list-group-item">
+                                    <i class="fa fa-file-text"></i> 备注 <span class="badge badge-warning pull-right r-activity">${device.remark}</span>
+                                </li>
                             </ul>
 
                         </section>

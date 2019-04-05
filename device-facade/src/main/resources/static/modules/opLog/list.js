@@ -55,8 +55,8 @@ this.listPageData = function(url){
     });
 
     $("#nextPage").on("click",function(){
-        var pageNo = $("#pageNo").val();
-        var totalPage = $("#totalPage").val();
+        var pageNo = parseInt($("#pageNo").val());
+        var totalPage = parseInt($("#totalPage").val());
         if(pageNo<totalPage){
             $(location).attr("href",url+"pageNo="+(pageNo*1+1));
         }else{

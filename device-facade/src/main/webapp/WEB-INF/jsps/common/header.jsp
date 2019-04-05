@@ -15,7 +15,7 @@
             <div class="user-area dropdown float-right">
                 <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <%--<img class="user-avatar rounded-circle" src="/static/images/admin.jpg" alt="User Avatar">--%>
-                    <div>张三</div>
+                    <div>${sessionScope.user.name}</div>
                 </a>
 
                 <div class="user-menu dropdown-menu">

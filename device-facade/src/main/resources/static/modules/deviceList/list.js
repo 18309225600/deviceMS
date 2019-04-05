@@ -88,7 +88,7 @@ var bind = function(){
         var confirm = prompt("请输入维修建议：")
         if(confirm){
             var id = $(this).parents("tr.dataTr").attr("id");
-            $.ajax("/device/repairOp/"+id,{
+            $.ajax("/device/repair/"+id,{
                 async: true,
                 data: {"remark":confirm},
                 success: function (data) {
@@ -107,7 +107,7 @@ var bind = function(){
 
     //删除按钮
     $("tr").find("button.delOp").on("click",function(){
-        var confirm = confirm("请输入删除理由：")
+        var confirm = prompt("请输入删除理由：")
         if(confirm){
             var id = $(this).parents("tr.dataTr").attr("id");
             $.ajax("/device/delOp/"+id,{
@@ -152,8 +152,8 @@ this.listPageData = function(url){
     });
 
     $("#nextPage").on("click",function(){
-        var pageNo = $("#pageNo").val();
-        var totalPage = $("#totalPage").val();
+        var pageNo = parseInt($("#pageNo").val());
+        var totalPage = parseInt($("#totalPage").val());
         if(pageNo<totalPage){
             $(location).attr("href",url+"pageNo="+(pageNo*1+1));
         }else{

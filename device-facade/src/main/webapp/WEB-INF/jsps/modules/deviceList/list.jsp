@@ -129,7 +129,7 @@
                                 <input type="hidden" id="pageNo" value="${pageNo}"/>
                                 <input type="hidden" id="totalPage" value="${list.pages}"/>
                                 <div>
-                                    <strong style="float: left;">当前第${list.pageNum}页，共${list.pages}页，共${list.total}条数据</strong>
+                                    <strong style="float: left;">当前第${list.pageNum}/${list.pages}页，共记${list.total}条数据</strong>
                                     <button type="buttom" id="firstPage" class="btn btn-secondary">首页</button>
                                     <button type="buttom" id="proidPage" class="btn btn-success">上一页</button>
                                     <button type="buttom" id="nextPage" class="btn btn-success">下一页</button>
@@ -167,6 +167,5 @@
     <script src="/static/assets/js/lib/data-table/buttons.colVis.min.js"></script>
     <script src="/static/assets/js/init/datatables-init.js"></script>
     <script src="/static/modules/deviceList/list.js"></script>
-
 </body>
 </html>
