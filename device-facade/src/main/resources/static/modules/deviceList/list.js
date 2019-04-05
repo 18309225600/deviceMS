@@ -85,7 +85,7 @@ var bind = function(){
 
     //维修按钮
     $("tr").find("button.repairOp").on("click",function(){
-        var confirm = prompt("请输入损坏说明：")
+        var confirm = prompt("请输入维修建议：")
         if(confirm){
             var id = $(this).parents("tr.dataTr").attr("id");
             $.ajax("/device/repairOp/"+id,{
@@ -107,7 +107,7 @@ var bind = function(){
 
     //删除按钮
     $("tr").find("button.delOp").on("click",function(){
-        var confirm = prompt("请输入损坏说明：")
+        var confirm = confirm("请输入删除理由：")
         if(confirm){
             var id = $(this).parents("tr.dataTr").attr("id");
             $.ajax("/device/delOp/"+id,{

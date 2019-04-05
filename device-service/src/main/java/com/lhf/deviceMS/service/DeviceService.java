@@ -12,4 +12,6 @@ public interface DeviceService {
     Detail queryDeviceById(Long deviceId);
 
     void updateDeviceStatus(Long deviceId, DeviceStatus status, String remark);
+
+    void delDevice(Long deviceId, String remark);
 }

@@ -112,4 +112,13 @@ public class DeviceController {
         return "操作成功！";
     }
 
+    @OpLog("删除设备")
+    @GetMapping("/delOp/{deviceId}")
+    @ResponseBody
+    public String delDevice(@PathVariable("deviceId")Long deviceId,String remark){
+        logger.info("设备ID={},备注={}",deviceId,remark);
+        deviceService.delDevice(deviceId,remark);
+        return "操作成功！";
+    }
+
 }

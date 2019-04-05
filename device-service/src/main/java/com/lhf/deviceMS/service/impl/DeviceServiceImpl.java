@@ -70,7 +70,8 @@ public class DeviceServiceImpl implements DeviceService {
         detail.setOpUserName(SessionUtils.getUsername());
 
         if(status==DeviceStatus.NOMAL){
-
+            detail.setStatus(DeviceStatus.NOMAL.getCode());
+            detail.setRemark(remark);
         } else if (status==DeviceStatus.DUMPED){
             detail.setStatus(status.getCode());
             detail.setRemark(remark);
@@ -95,6 +96,18 @@ public class DeviceServiceImpl implements DeviceService {
         }
 
         deviceDao.merge(Arrays.asList(detail));
+    }
+
+    @Override
+    public void delDevice(Long deviceId, String remark) {
+        Detail exist = deviceDao.queryDeviceById(deviceId);
+        Objects.requireNonNull(exist);
+
+        Detail del = new Detail();
+        del.setId(deviceId);
+        del.setRemark(remark);
+        del.setDeletedAt(TimeUtils.currentTime());
+        deviceDao.merge(Arrays.asList(del));
     }
 
     private List<Detail> packDevices(String name, String price, Integer number, String description, String source) {
