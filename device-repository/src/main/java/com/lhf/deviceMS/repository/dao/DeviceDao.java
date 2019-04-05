@@ -53,4 +53,11 @@ public class DeviceDao {
             detailMapper.updateByPrimaryKeySelective(device);
         }
     }
+
+    public Detail queryDeviceById(Long deviceId) {
+        Objects.requireNonNull(deviceId);
+        Weekend<Detail> weekend = new Weekend<>(Detail.class);
+        weekend.weekendCriteria().andIsNull(Detail::getDeletedAt).andEqualTo(Detail::getId,deviceId);
+        return detailMapper.selectOneByExample(weekend);
+    }
 }

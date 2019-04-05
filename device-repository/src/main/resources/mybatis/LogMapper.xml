@@ -169,4 +169,67 @@
     <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
     <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
   </resultMap>
+  <resultMap id="BaseResultMap" type="com.lhf.deviceMS.domain.entity.Log">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="log_type" jdbcType="CHAR" property="logType" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="operation" jdbcType="VARCHAR" property="operation" />
+    <result column="method_name" jdbcType="VARCHAR" property="methodName" />
+    <result column="request_method" jdbcType="CHAR" property="requestMethod" />
+    <result column="request_param" jdbcType="VARCHAR" property="requestParam" />
+    <result column="remote_ip" jdbcType="VARCHAR" property="remoteIp" />
+    <result column="request_uri" jdbcType="VARCHAR" property="requestUri" />
+    <result column="exception_code" jdbcType="VARCHAR" property="exceptionCode" />
+    <result column="exception_msg" jdbcType="VARCHAR" property="exceptionMsg" />
+    <result column="time_consuming" jdbcType="INTEGER" property="timeConsuming" />
+    <result column="user_agent" jdbcType="VARCHAR" property="userAgent" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.lhf.deviceMS.domain.entity.Log">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="log_type" jdbcType="CHAR" property="logType" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="operation" jdbcType="VARCHAR" property="operation" />
+    <result column="method_name" jdbcType="VARCHAR" property="methodName" />
+    <result column="request_method" jdbcType="CHAR" property="requestMethod" />
+    <result column="request_param" jdbcType="VARCHAR" property="requestParam" />
+    <result column="remote_ip" jdbcType="VARCHAR" property="remoteIp" />
+    <result column="request_uri" jdbcType="VARCHAR" property="requestUri" />
+    <result column="exception_code" jdbcType="VARCHAR" property="exceptionCode" />
+    <result column="exception_msg" jdbcType="VARCHAR" property="exceptionMsg" />
+    <result column="time_consuming" jdbcType="INTEGER" property="timeConsuming" />
+    <result column="user_agent" jdbcType="VARCHAR" property="userAgent" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+  </resultMap>
+  <resultMap id="BaseResultMap" type="com.lhf.deviceMS.domain.entity.Log">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="log_type" jdbcType="CHAR" property="logType" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="operation" jdbcType="VARCHAR" property="operation" />
+    <result column="method_name" jdbcType="VARCHAR" property="methodName" />
+    <result column="request_method" jdbcType="CHAR" property="requestMethod" />
+    <result column="request_param" jdbcType="VARCHAR" property="requestParam" />
+    <result column="remote_ip" jdbcType="VARCHAR" property="remoteIp" />
+    <result column="request_uri" jdbcType="VARCHAR" property="requestUri" />
+    <result column="exception_code" jdbcType="VARCHAR" property="exceptionCode" />
+    <result column="exception_msg" jdbcType="VARCHAR" property="exceptionMsg" />
+    <result column="time_consuming" jdbcType="INTEGER" property="timeConsuming" />
+    <result column="user_agent" jdbcType="VARCHAR" property="userAgent" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="deleted_at" jdbcType="TIMESTAMP" property="deletedAt" />
+  </resultMap>
 </mapper>

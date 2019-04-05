@@ -12,10 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -39,7 +36,8 @@ public class DeviceController {
         PageInfo<Detail> pageInfo = deviceService.list(status,page.getPageNo(),page.getPageSize());
         model.put("pageNo",page.getPageNo());
         model.put("list",pageInfo);
-        model.put("status",status.getMsg());
+        model.put("statusCode",status.getCode());
+        model.put("statusMsg",status.getMsg());
         return "modules/deviceList/list";
     }
 
@@ -64,4 +62,27 @@ public class DeviceController {
         deviceService.add(input.getName(),input.getPrice(),input.getNumber(),input.getDescription(),input.getSource());
         return "succ";
     }
+
+    /**
+     * 查看设备详情
+     * @param deviceId
+     * @return
+     */
+    @GetMapping("/detail/{deviceId}")
+    public String detail(@PathVariable("deviceId")Long deviceId,Map model){
+        Detail detail = deviceService.queryDeviceById(deviceId);
+        model.put("device",detail);
+        return "modules/deviceList/detail";
+    }
+
+    @OpLog("报废设备")
+    @GetMapping("/dump/{deviceId}")
+    @ResponseBody
+    public String dump(@PathVariable("deviceId")Long deviceId,String remark){
+        logger.info("设备ID={},备注={}",deviceId,remark);
+        deviceService.updateDeviceStatus(deviceId,DeviceStatus.DUMPED,remark);
+        return "操作成功！";
+    }
+
+
 }

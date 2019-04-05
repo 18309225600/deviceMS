@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
-    listPageData("/device/list");
+    var status = $(".statusCode").val();
+
+    listPageData("/device/list?status="+status);
 
     bind();
 
@@ -9,16 +11,32 @@ $(document).ready(function(){
 
 var bind = function(){
 
-    //查看按钮
-    $("tr").find("a#viewBtn").on("click",function(){
-        var id = $(this).parents("tr.userDataListTr").attr("id");
-        $(location).attr("href","/lecms_webapp/MaterialCategoryController/editCategory?op=view&id="+id);
+    //查看详情按钮
+    $("tr").find("button.detailOp").on("click",function(){
+        var id = $(this).parents("tr.dataTr").attr("id");
+        $(location).attr("href","/device/detail/"+id);
     });
 
-    //编辑按钮
-    $("tr").find("a#editBtn").on("click",function(){
-        var id = $(this).parents("tr.userDataListTr").attr("id");
-        $(location).attr("href","/lecms_webapp/MaterialCategoryController/editCategory?op=edit&id="+id);
+    //报废按钮
+    $("tr").find("button.dumpOp").on("click",function(){
+        var confirm = prompt("请输入报废原因：")
+        if(confirm){
+            var id = $(this).parents("tr.dataTr").attr("id");
+            $.ajax("/device/dump/"+id,{
+                async: true,
+                data: {"remark":confirm},
+                success: function (data) {
+                    alert(data);
+                    window.location.reload();
+                },
+                error: function (data) {
+                    alert("err"+data);
+                    window.location.reload();
+                }
+            });
+        }else {
+            alert("未输入原因，已放弃本次操作！")
+        }
     });
 
     //删除按钮

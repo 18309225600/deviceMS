@@ -20,10 +20,16 @@ public class Detail {
     private String name;
 
     /**
-     * 最后一次损坏时间
+     * 更新状态人ID
      */
-    @Column(name = "last_bad_at")
-    private Date lastBadAt;
+    @Column(name = "op_user_id")
+    private Long opUserId;
+
+    /**
+     * 更新状态人
+     */
+    @Column(name = "op_user_name")
+    private String opUserName;
 
     /**
      * 是否报废
@@ -51,6 +57,8 @@ public class Detail {
      * 数量
      */
     private Integer number;
+
+    private String remark;
 
     @Column(name = "created_at")
     private Date createdAt;
@@ -109,21 +117,39 @@ public class Detail {
     }
 
     /**
-     * 获取最后一次损坏时间
+     * 获取更新状态人ID
      *
-     * @return last_bad_at - 最后一次损坏时间
+     * @return op_user_id - 更新状态人ID
      */
-    public Date getLastBadAt() {
-        return lastBadAt;
+    public Long getOpUserId() {
+        return opUserId;
     }
 
     /**
-     * 设置最后一次损坏时间
+     * 设置更新状态人ID
      *
-     * @param lastBadAt 最后一次损坏时间
+     * @param opUserId 更新状态人ID
      */
-    public void setLastBadAt(Date lastBadAt) {
-        this.lastBadAt = lastBadAt;
+    public void setOpUserId(Long opUserId) {
+        this.opUserId = opUserId;
+    }
+
+    /**
+     * 获取更新状态人
+     *
+     * @return op_user_name - 更新状态人
+     */
+    public String getOpUserName() {
+        return opUserName;
+    }
+
+    /**
+     * 设置更新状态人
+     *
+     * @param opUserName 更新状态人
+     */
+    public void setOpUserName(String opUserName) {
+        this.opUserName = opUserName == null ? null : opUserName.trim();
     }
 
     /**
@@ -228,6 +254,20 @@ public class Detail {
      */
     public void setNumber(Integer number) {
         this.number = number;
+    }
+
+    /**
+     * @return remark
+     */
+    public String getRemark() {
+        return remark;
+    }
+
+    /**
+     * @param remark
+     */
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 
     /**

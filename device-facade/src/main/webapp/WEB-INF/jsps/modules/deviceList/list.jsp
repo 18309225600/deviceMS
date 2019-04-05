@@ -82,7 +82,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong class="card-title">${status}设备列表</strong>
+                            <input type="hidden" class="statusCode" value="${statusCode}"/>
+                            <strong class="card-title">${statusMsg}设备列表</strong>
                         </div>
                         <div class="card-body">
                             <table class="table table-striped">
@@ -93,17 +94,29 @@
                                     <th scope="col">设备名称</th>
                                     <th scope="col">采购时间</th>
                                     <th scope="col">采购价格</th>
+                                    <th scope="col">操作</th>
                                 </tr>
                                 </thead>
 
                                 <tbody>
                                     <c:forEach items="${list.list}" var="detail">
-                                        <tr>
+                                        <tr id="${detail.id}" class="dataTr">
                                             <td>${detail.id}</td>
                                             <td>${detail.code}</td>
                                             <td>${detail.name}</td>
                                             <td><fmt:formatDate value="${detail.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                                             <td>${detail.price/100}</td>
+                                            <td>
+                                                <button type="button" class="btn btn-outline-secondary btn-sm detailOp">查看详情</button>
+                                                <c:if test="${statusCode eq 'NOMAL'}">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm dumpOp">报废</button>
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm lostOp">报失</button>
+                                                </c:if>
+
+                                                <c:if test="${statusCode eq 'REPAIRING'}">
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm repairOp">维修</button>
+                                                </c:if>
+                                            </td>
                                         </tr>
                                     </c:forEach>
                                 </tbody>
