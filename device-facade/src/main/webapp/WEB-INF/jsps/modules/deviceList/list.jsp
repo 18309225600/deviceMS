@@ -111,6 +111,8 @@
                                                 <c:if test="${statusCode eq 'NOMAL'}">
                                                     <button type="button" class="btn btn-outline-secondary btn-sm dumpOp">报废</button>
                                                     <button type="button" class="btn btn-outline-secondary btn-sm lostOp">报失</button>
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm bad">报修</button>
+                                                    <button type="button" class="btn btn-outline-secondary btn-sm delOp">删除</button>
                                                 </c:if>
 
                                                 <c:if test="${statusCode eq 'REPAIRING'}">

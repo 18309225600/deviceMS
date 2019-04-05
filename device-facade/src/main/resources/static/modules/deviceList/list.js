@@ -39,12 +39,91 @@ var bind = function(){
         }
     });
 
+    //报失按钮
+    $("tr").find("button.lostOp").on("click",function(){
+        var confirm = prompt("请输入报失原因：")
+        if(confirm){
+            var id = $(this).parents("tr.dataTr").attr("id");
+            $.ajax("/device/lost/"+id,{
+                async: true,
+                data: {"remark":confirm},
+                success: function (data) {
+                    alert(data);
+                    window.location.reload();
+                },
+                error: function (data) {
+                    alert("err"+data);
+                    window.location.reload();
+                }
+            });
+        }else {
+            alert("未输入原因，已放弃本次操作！")
+        }
+    });
+
+    //报修按钮
+    $("tr").find("button.bad").on("click",function(){
+        var confirm = prompt("请输入损坏说明：")
+        if(confirm){
+            var id = $(this).parents("tr.dataTr").attr("id");
+            $.ajax("/device/bad/"+id,{
+                async: true,
+                data: {"remark":confirm},
+                success: function (data) {
+                    alert(data);
+                    window.location.reload();
+                },
+                error: function (data) {
+                    alert("err"+data);
+                    window.location.reload();
+                }
+            });
+        }else {
+            alert("未输入原因，已放弃本次操作！")
+        }
+    });
+
+    //维修按钮
+    $("tr").find("button.repairOp").on("click",function(){
+        var confirm = prompt("请输入损坏说明：")
+        if(confirm){
+            var id = $(this).parents("tr.dataTr").attr("id");
+            $.ajax("/device/repairOp/"+id,{
+                async: true,
+                data: {"remark":confirm},
+                success: function (data) {
+                    alert(data);
+                    window.location.reload();
+                },
+                error: function (data) {
+                    alert("err"+data);
+                    window.location.reload();
+                }
+            });
+        }else {
+            alert("未输入原因，已放弃本次操作！")
+        }
+    });
+
     //删除按钮
-    $("tr").find("a#deleteBtn").on("click",function(){
-        var con = confirm("确认删除吗?");
-        if(con){
-            var id = $(this).parents("tr.userDataListTr").attr("id");
-            $(location).attr("href","/lecms_webapp/MaterialCategoryController/editCategory?op=delete&id="+id);
+    $("tr").find("button.delOp").on("click",function(){
+        var confirm = prompt("请输入损坏说明：")
+        if(confirm){
+            var id = $(this).parents("tr.dataTr").attr("id");
+            $.ajax("/device/delOp/"+id,{
+                async: true,
+                data: {"remark":confirm},
+                success: function (data) {
+                    alert(data);
+                    window.location.reload();
+                },
+                error: function (data) {
+                    alert("err"+data);
+                    window.location.reload();
+                }
+            });
+        }else {
+            alert("未输入原因，已放弃本次操作！")
         }
     });
 }

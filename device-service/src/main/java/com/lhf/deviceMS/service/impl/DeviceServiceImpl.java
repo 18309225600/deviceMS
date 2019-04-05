@@ -69,7 +69,9 @@ public class DeviceServiceImpl implements DeviceService {
         detail.setOpUserId(SessionUtils.getUserId());
         detail.setOpUserName(SessionUtils.getUsername());
 
-        if (status==DeviceStatus.DUMPED){
+        if(status==DeviceStatus.NOMAL){
+
+        } else if (status==DeviceStatus.DUMPED){
             detail.setStatus(status.getCode());
             detail.setRemark(remark);
         }else if (status==DeviceStatus.REPAIRING){

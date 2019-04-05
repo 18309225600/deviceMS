@@ -84,5 +84,32 @@ public class DeviceController {
         return "操作成功！";
     }
 
+    @OpLog("报失设备")
+    @GetMapping("/lost/{deviceId}")
+    @ResponseBody
+    public String lost(@PathVariable("deviceId")Long deviceId,String remark){
+        logger.info("设备ID={},备注={}",deviceId,remark);
+        deviceService.updateDeviceStatus(deviceId,DeviceStatus.LOST,remark);
+        return "操作成功！";
+    }
+
+
+    @OpLog("报修设备")
+    @GetMapping("/bad/{deviceId}")
+    @ResponseBody
+    public String bad(@PathVariable("deviceId")Long deviceId,String remark){
+        logger.info("设备ID={},备注={}",deviceId,remark);
+        deviceService.updateDeviceStatus(deviceId,DeviceStatus.REPAIRING,remark);
+        return "操作成功！";
+    }
+
+    @OpLog("维修设备")
+    @GetMapping("/repair/{deviceId}")
+    @ResponseBody
+    public String repair(@PathVariable("deviceId")Long deviceId,String remark){
+        logger.info("设备ID={},备注={}",deviceId,remark);
+        deviceService.updateDeviceStatus(deviceId,DeviceStatus.NOMAL,remark);
+        return "操作成功！";
+    }
 
 }
