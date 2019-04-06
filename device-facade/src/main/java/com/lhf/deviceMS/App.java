@@ -9,7 +9,6 @@ import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, JdbcTemplateAutoConfiguration.class})
 @MapperScan(basePackages = {"com.lhf.deviceMS.repository.mapper", "com.lhf.deviceMS.repository.mapper.*"})
-@EnableSwagger2
 public class App {
 
     public static void main(String[] args){

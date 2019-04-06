@@ -20,3 +20,8 @@ setup:
     
     
     登录地址:127.0.0.1:port/index    预置用户18309225600@163.com/123456
+    
+    
+    数据源检测地址：http://127.0.0.1:8082/druid/index.html
+    接口文档swagger2地址：http://127.0.0.1:8082/swagger-ui.html
+    
