@@ -17,3 +17,6 @@ setup:
     3.修改邮箱信息
     4.设置运行环境  spring.profiles.active=dev   or    spring.profiles.active=test    or    spring.profiles.active=prod
     5.device-facade下面运行App
+    
+    
+    登录地址:127.0.0.1:port/index    预置用户18309225600@163.com/123456
