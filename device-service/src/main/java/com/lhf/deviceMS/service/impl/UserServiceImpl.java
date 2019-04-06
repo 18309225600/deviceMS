@@ -3,7 +3,9 @@ package com.lhf.deviceMS.service.impl;
 import com.lhf.deviceMS.common.std.WebException;
 import com.lhf.deviceMS.common.std.enums.WebErrCode;
 import com.lhf.deviceMS.common.utils.EncryptionUtils;
+import com.lhf.deviceMS.domain.entity.Menu;
 import com.lhf.deviceMS.domain.entity.User;
+import com.lhf.deviceMS.repository.dao.MenuDao;
 import com.lhf.deviceMS.repository.dao.UserDao;
 import com.lhf.deviceMS.service.MailService;
 import com.lhf.deviceMS.service.UserService;
@@ -27,6 +29,9 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private MailService mailService;
+
+    @Autowired
+    private MenuDao menuDao;
 
     @Autowired
     private ThreadPoolTaskExecutor pool;
@@ -62,11 +67,15 @@ public class UserServiceImpl implements UserService {
             return WebErrCode.DEVICE_USER_EMAIL_OR_EMAIL_INVALID.getMsg();
         }
 
+        HttpSession session = null;
         if (user!=null){
-            HttpSession session = request.getSession();
+            session = request.getSession();
             session.setAttribute("user",user);
         }
 
+        //菜单权限
+        List<Menu> menus = menuDao.queryMenus(user.getRole());
+        session.setAttribute("menus",menus);
         return null;
     }
 

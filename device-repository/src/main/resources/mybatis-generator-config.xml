@@ -43,6 +43,15 @@
         <table schema="public" tableName="divice_detail" domainObjectName="Detail">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
+        <table schema="public" tableName="device_user" domainObjectName="User">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="public" tableName="device_menu" domainObjectName="Menu">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
+        <table schema="public" tableName="device_role_menu" domainObjectName="RoleMenu">
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
+        </table>
 
 
     </context>

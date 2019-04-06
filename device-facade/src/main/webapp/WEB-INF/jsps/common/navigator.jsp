@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 
@@ -5,39 +6,11 @@
     <nav class="navbar navbar-expand-sm navbar-default">
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li>
-                    <a href="${ctx}/index" class="dropdown-toggle"><i class="menu-icon fa fa-laptop"></i>办公设备管理系统</a>
-                </li>
-                <li>
-                    <a href="${ctx}/device/list?status=NOMAL" class="dropdown-toggle"> <i class="menu-icon fa fa-cogs"></i>正常设备</a>
-                </li>
-                <li>
-                    <a href="${ctx}/device/list?status=REPAIRING" class="dropdown-toggle"> <i class="menu-icon fa fa-cogs"></i>待维修设备</a>
-                </li>
-                <li>
-                    <a href="${ctx}/device/list?status=DUMPED" class="dropdown-toggle"> <i class="menu-icon fa fa-warning"></i>报废设备</a>
-                </li>
-                <li>
-                    <a href="${ctx}/device/list?status=LOST" class="dropdown-toggle"> <i class="menu-icon fa fa-ban"></i>报失设备</a>
-                </li>
-                <li>
-                    <a href="${ctx}/device/addPage" class="dropdown-toggle"> <i class="menu-icon fa fa-cog"></i>设备采购</a>
-                </li>
-                <li>
-                    <a href="${ctx}/device/repairRecord" class="dropdown-toggle"> <i class="menu-icon fa fa-wrench"></i>维修记录</a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-user"></i>用户管理</a>
-                </li>
-                <li>
-                    <a href="${ctx}/opLog/list" class="dropdown-toggle"> <i class="menu-icon fa fa-book"></i>日志管理</a>
-                </li>
-                <li>
-                    <a href="#" class="dropdown-toggle"> <i class="menu-icon fa fa-envelope"></i>权限管理</a>
-                </li>
-                <li>
-                    <a href="${ctx}/user/myInfo" class="dropdown-toggle"> <i class="menu-icon fa fa-cog"></i>个人信息</a>
-                </li>
+                <c:forEach items="${sessionScope.menus}" var="menu">
+                    <li>
+                        <a href="${ctx}${menu.url}" class="dropdown-toggle"><i class="${menu.style}"></i>${menu.name}</a>
+                    </li>
+                </c:forEach>
             </ul>
         </div>
     </nav>
