@@ -1,9 +1,11 @@
 package com.lhf.deviceMS.service.impl;
 
+import com.github.pagehelper.PageInfo;
 import com.lhf.deviceMS.common.std.WebException;
 import com.lhf.deviceMS.common.std.enums.WebErrCode;
 import com.lhf.deviceMS.common.utils.EncryptionUtils;
 import com.lhf.deviceMS.domain.entity.Menu;
+import com.lhf.deviceMS.domain.entity.RoleMenu;
 import com.lhf.deviceMS.domain.entity.User;
 import com.lhf.deviceMS.repository.dao.MenuDao;
 import com.lhf.deviceMS.repository.dao.UserDao;
@@ -19,6 +21,7 @@ import org.springframework.util.CollectionUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.net.UnknownHostException;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -103,6 +106,59 @@ public class UserServiceImpl implements UserService {
         userDao.merge(repass);
 
         return WebErrCode.DEVICE_OP_SUCC.getMsg();
+    }
+
+    @Override
+    public PageInfo<User> list(Integer pageNo, Integer pageSize) {
+        return userDao.list(pageNo,pageSize);
+    }
+
+    @Override
+    public String changeRole(Long userId, String role) {
+        User user = userDao.queryUserById(userId);
+        if (user==null){
+            return WebErrCode.DEVICE_USER_NOT_EXIST.getMsg();
+        }
+
+        User change = new User();
+        change.setId(userId);
+        change.setRole(role);
+        userDao.merge(change);
+
+        return WebErrCode.DEVICE_OP_SUCC.getMsg();
+    }
+
+    @Override
+    public List<Menu> menuListByRole(String role) {
+        return menuDao.queryMenus(role);
+    }
+
+    @Override
+    public String updateRoleMenus(String role, Long[] menus) {
+        RoleMenu roleMenu = menuDao.queryRoleMenuByRole(role);
+
+        RoleMenu update = new RoleMenu();
+        if (roleMenu!=null){
+            update.setId(roleMenu.getId());
+        }
+
+        update.setRole(role);
+        update.setMenus(toSetStr(menus));
+        menuDao.merge(update);
+        return WebErrCode.DEVICE_OP_SUCC.getMsg();
+    }
+
+    private String toSetStr(Long[] menus) {
+        StringBuffer result = new StringBuffer("");
+        for (int i = 0,j = menus.length;i<j;i++){
+            if (i!=j-1){
+                result.append(menus[i]);
+                result.append(",");
+            }else{
+                result.append(menus[i]);
+            }
+        }
+        return result.toString();
     }
 
 

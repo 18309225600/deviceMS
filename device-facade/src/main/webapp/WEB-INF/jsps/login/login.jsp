@@ -49,7 +49,7 @@
                             <input type="checkbox"> Remember Me
                         </label>--%>
                         <label class="pull-right">
-                            <a href="#">密码忘记了?</a>
+                            <a href="${ctx}/login/repassPage">密码忘记了?</a>
                         </label>
 
                     </div>

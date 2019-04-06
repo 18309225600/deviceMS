@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50633
 File Encoding         : 65001
 
-Date: 2019-04-02 19:59:45
+Date: 2019-04-06 19:50:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,11 +37,41 @@ CREATE TABLE `device_log` (
   `created_at` datetime DEFAULT NULL COMMENT '创建时间',
   `deleted_at` datetime DEFAULT NULL COMMENT '删除时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=136 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of device_log
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for `device_menu`
+-- ----------------------------
+DROP TABLE IF EXISTS `device_menu`;
+CREATE TABLE `device_menu` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) DEFAULT NULL COMMENT '菜单名称',
+  `code` varchar(64) DEFAULT NULL COMMENT '菜单CODE',
+  `url` varchar(255) DEFAULT NULL COMMENT '菜单url',
+  `style` varchar(255) DEFAULT NULL COMMENT '菜单样式',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of device_menu
+-- ----------------------------
+INSERT INTO `device_menu` VALUES ('1', '办公设备管理系统', null, '/index', 'menu-icon fa fa-laptop', '2019-04-06 14:53:25', null);
+INSERT INTO `device_menu` VALUES ('2', '正常设备', null, '/device/list?status=NOMAL', 'menu-icon fa fa-cogs', '2019-04-06 14:27:33', null);
+INSERT INTO `device_menu` VALUES ('3', '待维修设备', null, '/device/list?status=REPAIRING', 'menu-icon fa fa-cogs', '2019-04-06 14:28:02', null);
+INSERT INTO `device_menu` VALUES ('4', '报废设备', null, '/device/list?status=DUMPED', 'menu-icon fa fa-warning', '2019-04-06 14:28:24', null);
+INSERT INTO `device_menu` VALUES ('5', '报失设备', null, '/device/list?status=LOST', 'menu-icon fa fa-ban', '2019-04-06 14:28:45', null);
+INSERT INTO `device_menu` VALUES ('6', '设备采购', null, '/device/addPage', 'menu-icon fa fa-cog', '2019-04-06 14:29:09', null);
+INSERT INTO `device_menu` VALUES ('7', '维修记录', null, '/device/repairRecord', 'menu-icon fa fa-wrench', '2019-04-06 14:29:28', null);
+INSERT INTO `device_menu` VALUES ('8', '用户管理', null, '/user/list', 'menu-icon fa fa-user', '2019-04-06 14:29:46', null);
+INSERT INTO `device_menu` VALUES ('9', '日志管理', null, '/opLog/list', 'menu-icon fa fa-book', '2019-04-06 14:30:12', null);
+INSERT INTO `device_menu` VALUES ('10', '权限管理', null, '/roleMenu/listPage', 'menu-icon fa fa-envelope', '2019-04-06 14:30:33', null);
+INSERT INTO `device_menu` VALUES ('11', '个人信息', null, '/user/myInfo', 'menu-icon fa fa-cog', '2019-04-06 14:30:56', null);
 
 -- ----------------------------
 -- Table structure for `device_repair_detail`
@@ -54,32 +84,35 @@ CREATE TABLE `device_repair_detail` (
   `device_code` varchar(255) DEFAULT NULL COMMENT '设备CODE',
   `device_name` varchar(255) DEFAULT NULL COMMENT '设备名称',
   `user_name` varchar(64) DEFAULT NULL COMMENT '维修人员名称',
+  `status` enum('REPAIRED','UNREPAIR') DEFAULT 'UNREPAIR',
+  `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `created_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of device_repair_detail
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `device_role`
+-- Table structure for `device_role_menu`
 -- ----------------------------
-DROP TABLE IF EXISTS `device_role`;
-CREATE TABLE `device_role` (
+DROP TABLE IF EXISTS `device_role_menu`;
+CREATE TABLE `device_role_menu` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(128) NOT NULL COMMENT '角色名称',
-  `desc` varchar(1024) DEFAULT NULL COMMENT '角色描述',
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `role` varchar(64) DEFAULT NULL,
+  `menus` set('13','12','11','10','9','8','7','6','5','4','3','2','1') DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
   `deleted_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique` (`role`,`deleted_at`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
--- Records of device_role
+-- Records of device_role_menu
 -- ----------------------------
-INSERT INTO `device_role` VALUES ('1', '测试组', '测试用的分组', '2019-03-31 00:22:10', null);
+INSERT INTO `device_role_menu` VALUES ('1', 'SYSTEM_MANAGER', '11,10,9,8,7,6,5,4,3,2,1', '2019-04-06 14:49:25', null);
 
 -- ----------------------------
 -- Table structure for `device_user`
@@ -92,32 +125,16 @@ CREATE TABLE `device_user` (
   `phone` varchar(32) DEFAULT NULL COMMENT '手机号',
   `email` varchar(64) NOT NULL COMMENT '邮箱，登录账号（不能为空，唯一）',
   `password` varchar(255) DEFAULT NULL COMMENT '密码',
-  `role` bigint(20) DEFAULT NULL COMMENT '角色',
+  `role` enum('EMPLOYEE','SYSTEM_MANAGER','DEVICE_MANAGER') DEFAULT NULL COMMENT '角色',
   `created_at` timestamp NULL DEFAULT NULL COMMENT '创建时间',
-  `deleted_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '删除时间',
+  `deleted_at` timestamp NULL DEFAULT NULL COMMENT '删除时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of device_user
 -- ----------------------------
-
--- ----------------------------
--- Table structure for `device_user_role`
--- ----------------------------
-DROP TABLE IF EXISTS `device_user_role`;
-CREATE TABLE `device_user_role` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` bigint(20) DEFAULT NULL,
-  `role_id` bigint(20) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `deleted_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of device_user_role
--- ----------------------------
+INSERT INTO `device_user` VALUES ('1', '超级管理员', 'MALE', '18309225600', '18309225600@163.com', 'E10ADC3949BA59ABBE56E057F20F883E', 'SYSTEM_MANAGER', '2019-04-02 22:01:38', null);
 
 -- ----------------------------
 -- Table structure for `divice_detail`
@@ -127,14 +144,19 @@ CREATE TABLE `divice_detail` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `code` varchar(255) NOT NULL COMMENT '设备编号',
   `name` varchar(255) DEFAULT NULL COMMENT '设备名称',
-  `last_repair_at` datetime DEFAULT NULL COMMENT '最后一次维修时间',
+  `op_user_id` bigint(20) DEFAULT NULL COMMENT '更新状态人ID',
+  `op_user_name` varchar(64) DEFAULT NULL COMMENT '更新状态人',
   `dumped` enum('TRUE','FALSE') DEFAULT 'FALSE' COMMENT '是否报废',
-  `buy_at` datetime DEFAULT NULL COMMENT '购买时间',
   `status` enum('NOMAL','DUMPED','LOST','REPAIRING') DEFAULT 'NOMAL',
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `price` bigint(20) DEFAULT '0' COMMENT '价格',
+  `description` varchar(255) DEFAULT NULL COMMENT '设备描述',
+  `source` varchar(255) DEFAULT NULL COMMENT '设备来源',
+  `number` int(11) DEFAULT '1' COMMENT '数量',
+  `remark` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `deleted_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of divice_detail

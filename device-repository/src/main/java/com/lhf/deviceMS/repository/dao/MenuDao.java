@@ -1,5 +1,6 @@
 package com.lhf.deviceMS.repository.dao;
 
+import com.lhf.deviceMS.common.utils.TimeUtils;
 import com.lhf.deviceMS.domain.entity.Menu;
 import com.lhf.deviceMS.domain.entity.RoleMenu;
 import com.lhf.deviceMS.repository.mapper.MenuMapper;
@@ -57,5 +58,22 @@ public class MenuDao {
             return ids;
         }
         return Collections.emptyList();
+    }
+
+    public void merge(RoleMenu roleMenu) {
+        Objects.requireNonNull(roleMenu);
+
+        if (roleMenu.getId()==null){
+            roleMenu.setCreatedAt(TimeUtils.currentTime());
+            roleMenuMapper.insertSelective(roleMenu);
+        }else{
+            roleMenuMapper.updateByPrimaryKeySelective(roleMenu);
+        }
+    }
+
+    public RoleMenu queryRoleMenuByRole(String role) {
+        Weekend<RoleMenu> weekend = new Weekend<>(RoleMenu.class);
+        weekend.weekendCriteria().andIsNull(RoleMenu::getDeletedAt).andEqualTo(RoleMenu::getRole,role);
+        return roleMenuMapper.selectOneByExample(weekend);
     }
 }
