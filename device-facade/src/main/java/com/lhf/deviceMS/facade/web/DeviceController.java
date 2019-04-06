@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import com.lhf.deviceMS.common.std.PageIn;
 import com.lhf.deviceMS.domain.entity.Detail;
+import com.lhf.deviceMS.domain.entity.RepairDetail;
 import com.lhf.deviceMS.domain.enums.DeviceStatus;
 import com.lhf.deviceMS.facade.config.oplog.annotations.OpLog;
 import com.lhf.deviceMS.facade.data.input.DeviceAddInputDto;
@@ -119,6 +120,21 @@ public class DeviceController {
         logger.info("设备ID={},备注={}",deviceId,remark);
         deviceService.delDevice(deviceId,remark);
         return "操作成功！";
+    }
+
+
+    /**
+     * 维修记录列表
+     * @param model
+     * @param page
+     * @return
+     */
+    @GetMapping("/repairRecord")
+    public String repairRecord(Map model,PageIn page){
+        PageInfo<RepairDetail> pageInfo = deviceService.repairList(page.getPageNo(),page.getPageSize());
+        model.put("pageNo",page.getPageNo());
+        model.put("list",pageInfo);
+        return "modules/repair/list";
     }
 
 }

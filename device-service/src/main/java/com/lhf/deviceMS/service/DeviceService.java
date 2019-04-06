@@ -2,6 +2,7 @@ package com.lhf.deviceMS.service;
 
 import com.github.pagehelper.PageInfo;
 import com.lhf.deviceMS.domain.entity.Detail;
+import com.lhf.deviceMS.domain.entity.RepairDetail;
 import com.lhf.deviceMS.domain.enums.DeviceStatus;
 
 public interface DeviceService {
@@ -14,4 +15,6 @@ public interface DeviceService {
     void updateDeviceStatus(Long deviceId, DeviceStatus status, String remark);
 
     void delDevice(Long deviceId, String remark);
+
+    PageInfo<RepairDetail> repairList(Integer pageNo, Integer pageSize);
 }

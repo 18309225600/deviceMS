@@ -1,12 +1,15 @@
 package com.lhf.deviceMS.facade.web;
 
+import com.lhf.deviceMS.common.std.enums.WebErrCode;
 import com.lhf.deviceMS.domain.vo.IndexTotalVo;
 import com.lhf.deviceMS.service.IndexService;
+import com.lhf.deviceMS.service.MailService;
+import com.lhf.deviceMS.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.UnknownHostException;
 import java.util.Map;
 
 @Controller
@@ -16,6 +19,11 @@ public class IndexController {
     @Autowired
     private IndexService indexService;
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private MailService mailService;
     /**
      * 首页
      * @param model
@@ -37,4 +45,6 @@ public class IndexController {
     public String home(){
         return "login/login";
     }
+
+
 }

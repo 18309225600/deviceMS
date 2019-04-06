@@ -12,11 +12,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.net.UnknownHostException;
 import java.util.Map;
 
 @Controller
@@ -97,5 +99,53 @@ public class LoginController {
             session.invalidate();
         }
         return "login/login";
+    }
+
+    /**
+     * 修改密码发邮件页面
+     * @return
+     */
+    @GetMapping("/repassPage")
+    public String repassPage(){
+        return "modules/user/repassMail";
+    }
+
+    /**
+     * 发送邮件，修改密码
+     * @param email
+     * @return
+     */
+    @PostMapping("/repass")
+    public String repass(Map model,String email) throws UnknownHostException {
+        String result = userService.repassCheck(email);
+        model.put("msg",result);
+        return "index";
+    }
+
+    /**
+     * 修改密码页面
+     * @param userId
+     * @param id
+     * @param model
+     * @return
+     */
+    @GetMapping("/{userId}/mRepass")
+    public String realRepassPage(@PathVariable("userId")Long userId, String id, Map model){
+        model.put("userId",userId);
+        return "modules/user/repass";
+    }
+
+    /**
+     * 重置密码
+     * @param userId
+     * @param password
+     * @param model
+     * @return
+     */
+    @PostMapping("/rRepass")
+    public String realRepass(Long userId,String password,Map model){
+        String msg = userService.realRepass(userId,password);
+        model.put("msg", msg);
+        return "modules/user/repass";
     }
 }

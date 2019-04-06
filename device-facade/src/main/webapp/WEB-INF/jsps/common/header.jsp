@@ -4,8 +4,8 @@
 <header id="header" class="header">
     <div class="top-left">
         <div class="navbar-header">
-            <a class="navbar-brand" href="./"><img src="/static/images/logo.png" alt="Logo"></a>
-            <a class="navbar-brand hidden" href="./"><img src="/static/images/logo2.png" alt="Logo"></a>
+            <a class="navbar-brand" href="/index"><img src="/static/images/logo.png" alt="Logo"></a>
+            <a class="navbar-brand hidden" href="/index"><img src="/static/images/logo2.png" alt="Logo"></a>
             <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
         </div>
     </div>
@@ -19,6 +19,7 @@
                 </a>
 
                 <div class="user-menu dropdown-menu">
+                    <a class="nav-link" href="/login/repassPage"><i class="fa fa-power -off"></i>修改密码</a>
                     <a class="nav-link" href="/login/exit"><i class="fa fa-power -off"></i>登出系统</a>
                 </div>
             </div>

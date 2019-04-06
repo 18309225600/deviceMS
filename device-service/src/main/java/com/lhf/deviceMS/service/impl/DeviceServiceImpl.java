@@ -72,12 +72,6 @@ public class DeviceServiceImpl implements DeviceService {
         if(status==DeviceStatus.NOMAL){
             detail.setStatus(DeviceStatus.NOMAL.getCode());
             detail.setRemark(remark);
-        } else if (status==DeviceStatus.DUMPED){
-            detail.setStatus(status.getCode());
-            detail.setRemark(remark);
-        }else if (status==DeviceStatus.REPAIRING){
-            detail.setStatus(status.getCode());
-            detail.setRemark(remark);
 
             //repair recored
             RepairDetail repairDetail = new RepairDetail();
@@ -86,9 +80,15 @@ public class DeviceServiceImpl implements DeviceService {
             repairDetail.setDeviceId(deviceId);
             repairDetail.setDeviceCode(exist.getCode());
             repairDetail.setDeviceName(exist.getName());
-            repairDetail.setStatus(RepaireStatus.UNREPAIR.getCode());
+            repairDetail.setStatus(RepaireStatus.REPAIRED.getCode());
             repairDetail.setRemark(remark);
             repaireDao.merge(repairDetail);
+        } else if (status==DeviceStatus.DUMPED){
+            detail.setStatus(status.getCode());
+            detail.setRemark(remark);
+        }else if (status==DeviceStatus.REPAIRING){
+            detail.setStatus(status.getCode());
+            detail.setRemark(remark);
 
         }else if (status==DeviceStatus.LOST){
             detail.setStatus(status.getCode());
@@ -108,6 +108,11 @@ public class DeviceServiceImpl implements DeviceService {
         del.setRemark(remark);
         del.setDeletedAt(TimeUtils.currentTime());
         deviceDao.merge(Arrays.asList(del));
+    }
+
+    @Override
+    public PageInfo<RepairDetail> repairList(Integer pageNo, Integer pageSize) {
+        return deviceDao.repairList(pageNo,pageSize);
     }
 
     private List<Detail> packDevices(String name, String price, Integer number, String description, String source) {

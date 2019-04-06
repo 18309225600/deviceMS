@@ -16,4 +16,6 @@ public class LogServiceImpl implements LogService {
     public void save(Log log) {
         opLogDao.merge(log);
     }
+
+
 }

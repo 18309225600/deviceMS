@@ -6,6 +6,7 @@ package com.lhf.deviceMS.common.std.enums;
  * @date 17/8/19
  */
 public enum WebErrCode {
+    DEVICE_OP_SUCC("2000001","操作成功"),
     DEVICE_SYS_ERROR("5000001","网络繁忙"),
     DEVICE_SYS_OPTION_NOT_EXSIT("5000002","操作信息不存在"),
     DEVICE_COMMON_OPERATION_FAIL("5000003","操作失败"),

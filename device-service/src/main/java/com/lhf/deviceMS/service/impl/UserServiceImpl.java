@@ -5,13 +5,18 @@ import com.lhf.deviceMS.common.std.enums.WebErrCode;
 import com.lhf.deviceMS.common.utils.EncryptionUtils;
 import com.lhf.deviceMS.domain.entity.User;
 import com.lhf.deviceMS.repository.dao.UserDao;
+import com.lhf.deviceMS.service.MailService;
 import com.lhf.deviceMS.service.UserService;
+import com.lhf.deviceMS.service.task.RepassMailTask;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.net.UnknownHostException;
 import java.util.List;
 
 @Service
@@ -20,6 +25,14 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
 
+    @Autowired
+    private MailService mailService;
+
+    @Autowired
+    private ThreadPoolTaskExecutor pool;
+
+    @Value("${server.port}")
+    private Integer port;
 
     @Override
     public void regist(User inputUser) throws WebException {
@@ -55,6 +68,32 @@ public class UserServiceImpl implements UserService {
         }
 
         return null;
+    }
+
+    @Override
+    public String repassCheck(String email) throws UnknownHostException {
+        List<User> users = userDao.queryUserByEmail(email);
+        if (CollectionUtils.isEmpty(users)){
+            return WebErrCode.DEVICE_USER_NOT_EXIST.getMsg();
+        }
+
+        pool.submit(new RepassMailTask(email,mailService,port,users.get(0).getId()));
+        return WebErrCode.DEVICE_OP_SUCC.getMsg();
+    }
+
+    @Override
+    public String realRepass(Long userId, String password) {
+        User user = userDao.queryUserById(userId);
+        if (user==null){
+            return WebErrCode.DEVICE_USER_NOT_EXIST.getMsg();
+        }
+
+        User repass = new User();
+        repass.setId(userId);
+        repass.setPassword(EncryptionUtils.md5(password));
+        userDao.merge(repass);
+
+        return WebErrCode.DEVICE_OP_SUCC.getMsg();
     }
 
 
