@@ -50,7 +50,7 @@
 </script>
 
 <input type="file" id="file" name="file">
-<input type="button" name="file" onclick="imageUpload()">上传</input>
+<input type="button" onclick="imageUpload()">上传</input>
 
 </body>
 </html>
