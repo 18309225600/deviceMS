@@ -44,15 +44,15 @@
                         <label>密码</label>
                         <input type="password" name="password" class="form-control" placeholder="密码">
                     </div>
-                    <div class="checkbox">
-                        <%--<label>
+                    <%--<div class="checkbox">
+                        &lt;%&ndash;<label>
                             <input type="checkbox"> Remember Me
-                        </label>--%>
+                        </label>&ndash;%&gt;
                         <label class="pull-right">
                             <a href="${ctx}/login/repassPage">密码忘记了?</a>
                         </label>
 
-                    </div>
+                    </div>--%>
                     <button type="submit" class="btn btn-success btn-flat m-b-30 m-t-30">登录</button>
                     <%--<div class="social-login-content">
                         <div class="social-button">

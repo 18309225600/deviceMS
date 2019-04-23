@@ -135,10 +135,6 @@
                                     <button type="buttom" id="nextPage" class="btn btn-success">下一页</button>
                                     <button type="buttom" id="endPage" class="btn btn-secondary">尾页</button>
                                 </div>
-                                <%--<div align="center" id="firstPage"><button type="button" class="btn btn-outline-secondary btn-sm">首页</button></div></td>
-                                <div align="center" id="proidPage"><button type="button" class="btn btn-outline-secondary btn-sm">上一页</button></div></td>
-                                <div align="center" id="nextPage"><button type="button" class="btn btn-outline-secondary btn-sm">下一页</button></div></td>
-                                <div align="center" id="endPage"><button type="button" class="btn btn-outline-secondary btn-sm">尾页</button></div></td>--%>
                             </div>
 
                         </div>

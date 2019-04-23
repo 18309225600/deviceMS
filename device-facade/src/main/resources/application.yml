@@ -39,8 +39,6 @@ spring:
       password: 123456
 
   mvc:
-    favicon:
-      enabled:  false
     view:
       prefix: /WEB-INF/jsps/
       suffix: .jsp

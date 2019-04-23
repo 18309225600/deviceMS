@@ -17,7 +17,7 @@
                 </a>
 
                 <div class="user-menu dropdown-menu">
-                    <a class="nav-link" href="/login/repassPage"><i class="fa fa-power -off"></i>修改密码</a>
+                    <%--<a class="nav-link" href="/login/repassPage"><i class="fa fa-power -off"></i>修改密码</a>--%>
                     <a class="nav-link" href="/login/exit"><i class="fa fa-power -off"></i>登出系统</a>
                 </div>
             </div>

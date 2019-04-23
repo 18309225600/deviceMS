@@ -41,8 +41,6 @@ spring:
     showSql:  true
 
   mvc:
-    favicon:
-      enabled:  false
     view:
       prefix: /WEB-INF/jsps/
       suffix: .jsp

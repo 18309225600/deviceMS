@@ -88,25 +88,25 @@
                             <div class="mx-auto d-block">
                                 <%--<img class="rounded-circle mx-auto d-block" src="images/admin.jpg" alt="Card image cap">--%>
                                 <h4 class="text-sm-center mt-2 mb-1"><strong>${sessionScope.user.name}</strong></h4>
-                                <div class="location text-sm-center"><i class="fa fa-male"></i>${sessionScope.user.gender eq 'MALE' ? '男' : '女'}</div>
+                                <div class="location text-sm-center"><i class="fa"></i>${sessionScope.user.gender eq 'MALE' ? '男' : '女'}</div>
                             </div>
 
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <a href="#"><i class="fa fa-facebook pr-1">${sessionScope.user.phone}</i></a>
+                                    <a href="#"><i class="fa pr-1">${sessionScope.user.phone}</i></a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="#"><i class="fa fa-twitter pr-1">${sessionScope.user.email}</i></a>
+                                    <a href="#"><i class="fa pr-1">${sessionScope.user.email}</i></a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="#"><i class="fa fa-linkedin pr-1">
+                                    <a href="#"><i class="fa pr-1">
                                         <c:if test="${sessionScope.user.role eq 'EMPLOYEE'}">企业员工</c:if>
                                         <c:if test="${sessionScope.user.role eq 'DEVICE_MANAGER'}">设备管理人员</c:if>
                                         <c:if test="${sessionScope.user.role eq 'SYSTEM_MANAGER'}">系统管理人员</c:if>
                                     </i></a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="#"><i class="fa fa-calendar pr-1"><fmt:formatDate value="${sessionScope.user.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" /></i></a>
+                                    <a href="#"><i class="fa pr-1"><fmt:formatDate value="${sessionScope.user.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" /></i></a>
                                 </li>
                             </ul>
                         </div>

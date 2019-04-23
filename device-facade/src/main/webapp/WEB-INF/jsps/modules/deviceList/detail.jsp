@@ -102,28 +102,28 @@
 
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
-                                    <i class="fa fa-star-half-o"></i> 设备编号 <span class="badge badge-primary pull-right">${device.code}</span>
+                                    <i class="fa"></i> 设备编号 <span class="badge pull-right">${device.code}</span>
                                 </li>
                                 <li class="list-group-item">
-                                    <i class="fa fa-tasks"></i> 设备名称 <span class="badge badge-danger pull-right">${device.name}</span>
+                                    <i class="fa"></i> 设备名称 <span class="badge pull-right">${device.name}</span>
                                 </li>
                                 <li class="list-group-item">
-                                    <i class="fa fa-cny"></i> 设备价格 <span class="badge badge-success pull-right">${device.price/100}</span>
+                                    <i class="fa"></i> 设备价格 <span class="badge pull-right">${device.price/100}</span>
                                 </li>
                                 <li class="list-group-item">
-                                    <i class="fa fa-subscript"></i> 同类型设备数量 <span class="badge badge-success pull-right">${device.number}</span>
+                                    <i class="fa"></i> 同类型设备数量 <span class="badge pull-right">${device.number}</span>
                                 </li>
                                 <li class="list-group-item">
-                                    <i class="fa fa-comments-o"></i> 设备描述 <span class="badge badge-warning pull-right r-activity">${device.description}</span>
+                                    <i class="fa"></i> 设备描述 <span class="badge pull-right r-activity">${device.description}</span>
                                 </li>
                                 <li class="list-group-item">
-                                    <i class="fa fa-truck"></i> 设备来源 <span class="badge badge-warning pull-right r-activity">${device.source}</span>
+                                    <i class="fa"></i> 设备来源 <span class="badge pull-right r-activity">${device.source}</span>
                                 </li>
                                 <li class="list-group-item">
-                                    <i class="fa fa-table"></i> 设备采购时间 <span class="badge badge-warning pull-right r-activity"><fmt:formatDate value="${device.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
+                                    <i class="fa"></i> 设备采购时间 <span class="badge pull-right r-activity"><fmt:formatDate value="${device.createdAt}" pattern="yyyy-MM-dd HH:mm:ss" /></span>
                                 </li>
                                 <li class="list-group-item">
-                                    <i class="fa fa-file-text"></i> 备注 <span class="badge badge-warning pull-right r-activity">${device.remark}</span>
+                                    <i class="fa"></i> 备注 <span class="badge pull-right r-activity">${device.remark}</span>
                                 </li>
                             </ul>
 
