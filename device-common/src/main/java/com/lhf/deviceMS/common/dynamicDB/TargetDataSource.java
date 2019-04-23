@@ -3,7 +3,7 @@ package com.lhf.deviceMS.common.dynamicDB;
 import java.lang.annotation.*;
 
 /**
- * @Author lhf
+ * @Author mjy
  * @Description
  * @Date 2019/1/29 19:19
  * @Version 1.0

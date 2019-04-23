@@ -1,7 +1,7 @@
 package com.lhf.deviceMS.domain.vo;
 
 /**
- * @Author lhf
+ * @Author mjy
  * @Description
  * @Date 2019/4/3 10:09
  * @Version 1.0

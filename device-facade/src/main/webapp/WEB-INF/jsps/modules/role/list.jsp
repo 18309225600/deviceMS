@@ -106,7 +106,7 @@
                                 <div class="form-check" style="margin:0 auto;text-align:left;">
                                     <div class="checkbox">
                                         <label for="checkbox1" class="form-check-label ">
-                                            <input type="checkbox" id="checkbox1" name="role" value="1" class="form-check-input">办公设备管理系统
+                                            <input type="checkbox" id="checkbox1" name="role" value="1" class="form-check-input">总页面
                                         </label>
                                     </div>
                                     <div class="checkbox">

@@ -4,9 +4,7 @@
 <header id="header" class="header">
     <div class="top-left">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/index"><img src="/static/images/logo.png" alt="Logo"></a>
-            <a class="navbar-brand hidden" href="/index"><img src="/static/images/logo2.png" alt="Logo"></a>
-            <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+             <h1>办公设备管理系统</h1>
         </div>
     </div>
     <div class="top-right">

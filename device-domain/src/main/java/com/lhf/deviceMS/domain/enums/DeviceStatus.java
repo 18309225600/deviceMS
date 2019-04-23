@@ -1,7 +1,7 @@
 package com.lhf.deviceMS.domain.enums;
 
 /**
- * @Author lhf
+ * @Author mjy
  * @Description
  * @Date 2019/4/3 10:24
  * @Version 1.0

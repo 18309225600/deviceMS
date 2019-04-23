@@ -135,7 +135,6 @@ CREATE TABLE `device_user` (
 -- Records of device_user
 -- ----------------------------
 INSERT INTO `device_user` VALUES ('1', '超级管理员', 'MALE', '18309225600', '18309225600@163.com', 'E10ADC3949BA59ABBE56E057F20F883E', 'SYSTEM_MANAGER', '2019-04-02 22:01:38', null);
-
 -- ----------------------------
 -- Table structure for `divice_detail`
 -- ----------------------------

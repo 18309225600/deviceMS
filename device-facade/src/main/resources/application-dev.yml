@@ -1,8 +1,10 @@
+#端口
 server:
   port: 8082
-  tomcat:
+  tomcat:   #这个是一个服务器临时目录  如果不配置这个  默认linux下是一个temp目录   linux会定时清理这个目录  会导致服务出现问题
     basedir:  /home/
 
+#这儿是关于spring的配置  datasource是数据源的配置 下面这一片都是关于数据源的配置
 spring:
   datasource:
     initialSize:  2
@@ -19,11 +21,12 @@ spring:
     maxPoolPreparedStatementPerConnectionSize:  20
     filters:  wall,stat
 
+    #这个是主数据源   其他俩数据源没用   项目用不到多数据源  我集成的时候集成的是多数据源  所以修改这一个就够了
     ds1:
       driverClassName:  com.mysql.jdbc.Driver
-      url:  jdbc:mysql://localhost:3306/device_ms?useUnicode=true&characterEncoding=UTF-8
+      url:  jdbc:mysql://localhost:3306/device_ms?useUnicode=true&characterEncoding=UTF-8&useSSL=false
       username: root
-      password: 123456
+      password: 8008208820
 
     ds2:
       driverClassName:  com.mysql.jdbc.Driver

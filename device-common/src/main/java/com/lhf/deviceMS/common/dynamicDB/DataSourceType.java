@@ -1,7 +1,7 @@
 package com.lhf.deviceMS.common.dynamicDB;
 
 /**
- * @Author lhf
+ * @Author mjy
  * @Description
  * @Date 2019/2/20 12:26
  * @Version 1.0

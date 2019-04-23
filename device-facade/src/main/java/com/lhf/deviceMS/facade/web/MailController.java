@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * created by lhf on 2019/2/23
+ * created by mjy on 2019/4/10
  **/
 @RestController
 @RequestMapping("/mail")
