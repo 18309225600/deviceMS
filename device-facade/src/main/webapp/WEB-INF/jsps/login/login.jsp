@@ -30,19 +30,22 @@
         <div class="login-content">
             <div class="login-logo">
                 <a href="index.html">
-                    <img class="align-content" src="/static/images/logo.png" alt="">
+                   <h1>企业办公设备管理系统</h1>
+                   <br />
+                   <br />
+                   <br />
                 </a>
             </div>
             <div class="login-form">
                 <form action="/login/exe" method="post">
                     <div style="text-align: center;color:red;">${msg}</div>
                     <div class="form-group">
-                        <label>邮箱地址</label>
-                        <input type="email" name="email" class="form-control" placeholder="邮箱">
+                        <label>邮箱:</label>
+                        <input type="email" name="email" class="form-control" placeholder="请输入邮箱">
                     </div>
                     <div class="form-group">
-                        <label>密码</label>
-                        <input type="password" name="password" class="form-control" placeholder="密码">
+                        <label>密码:</label>
+                        <input type="password" name="password" class="form-control" placeholder="请输入密码">
                     </div>
                     <%--<div class="checkbox">
                         &lt;%&ndash;<label>
